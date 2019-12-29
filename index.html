@@ -313,6 +313,39 @@ function category_js () {
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Book/" itemprop="url" rel="index">
+                    <span itemprop="name">Book</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Book/Head-First-Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Head First Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -342,7 +375,62 @@ function category_js () {
       
         
           
-            
+            <h2 id="Chapter-5"><a href="#Chapter-5" class="headerlink" title="Chapter 5"></a>Chapter 5</h2><hr>
+<h3 id="Workflow-of-developing-a-class"><a href="#Workflow-of-developing-a-class" class="headerlink" title="Workflow of developing a class"></a>Workflow of developing a class</h3><ul>
+<li><ol>
+<li>figure out what the class should do</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>list the attributes and methods</li>
+</ol>
+</li>
+<li><ol start="3">
+<li><strong>write the test class</strong></li>
+</ol>
+</li>
+<li><ol start="4">
+<li>implement the class</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>test</li>
+</ol>
+</li>
+<li><ol start="6">
+<li>debug</li>
+</ol>
+</li>
+</ul>
+<h3 id="Casting"><a href="#Casting" class="headerlink" title="Casting"></a>Casting</h3><p>When changing a bigger obj to smaller obj, casting is need (lose accuracy)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//eg</span></span><br><span class="line"><span class="keyword">long</span> x = <span class="number">8</span>;</span><br><span class="line"><span class="keyword">int</span> y = (<span class="keyword">int</span>) x;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//weird result when the range is exceed the smaller obj</span></span><br><span class="line"><span class="keyword">long</span> y = <span class="number">40002</span>;</span><br><span class="line"><span class="keyword">short</span> x = (<span class="keyword">short</span>) y;</span><br><span class="line">System.out.println(x);  <span class="comment">//-25534</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Chapter-6"><a href="#Chapter-6" class="headerlink" title="Chapter 6"></a>Chapter 6</h2><h3 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h3><p>ArrayList is a class</p>
+<ul>
+<li>ArrayList obj just like other obj lives in heap</li>
+</ul>
+<h3 id="amp-amp-amp-and"><a href="#amp-amp-amp-and" class="headerlink" title="&amp;&amp;, &amp; and ||, |"></a>&amp;&amp;, &amp; and ||, |</h3><ul>
+<li><p>&amp; and |</p>
+</li>
+<li><p>jvm will force to check oprands in both side.</p>
+</li>
+<li><p>&amp;&amp; and || are know as short circuit oprators</p>
+</li>
+<li><p>the second oprand will only be checked if necessary</p>
+</li>
+</ul>
+<h3 id="Package"><a href="#Package" class="headerlink" title="Package"></a>Package</h3><ul>
+<li>java.util.ArrayList</li>
+<li>java.util is the name of package</li>
+<li>ArrayList is the class name</li>
+</ul>
+<h3 id="import-all-classes-in-a-package"><a href="#import-all-classes-in-a-package" class="headerlink" title="import all classes in a package"></a>import all classes in a package</h3><ul>
+<li>if * is used to import all classes in a package</li>
+<li>it will only affect the compilie time, not the run time</li>
+</ul>
+
           
         
       
