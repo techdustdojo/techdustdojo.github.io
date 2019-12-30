@@ -271,6 +271,208 @@ function category_js () {
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/30/Thread-in-Java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tech Dustdojo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tech Dustdojo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/30/Thread-in-Java/" itemprop="url">Thread in Java</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-30T12:04:39+08:00">
+                2019-12-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaSE/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaSE</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Basic-concept"><a href="#Basic-concept" class="headerlink" title="Basic concept"></a>Basic concept</h2><ul>
+<li>Threads have indepent stack and programme counter</li>
+<li>Threads share same heap, and method area</li>
+<li>A java programme has at least 3 threads including main, garbage collection, and exception handle.</li>
+<li>There are 2 types of threads</li>
+<li>Daemon thread eg: garbage collection, and exception handle thread</li>
+<li>User thread eg: main </li>
+<li>Daemon will automatically stop if user thread stops </li>
+</ul>
+<h2 id="Create-Thread"><a href="#Create-Thread" class="headerlink" title="Create Thread"></a>Create Thread</h2><h3 id="Method-1"><a href="#Method-1" class="headerlink" title="Method 1:"></a>Method 1:</h3><ol>
+<li>inherit the Thread class</li>
+<li>override run method</li>
+<li>create obj</li>
+<li><em>obj.start()</em>    //not run(), run() will not create a new thread</li>
+</ol>
+<ul>
+<li>Start() -&gt;causes JVM will automatically call run method</li>
+<li>one obj can only create one thread only</li>
+<li>multiple objs is required to create mutilple threads<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//create thread using anonymous obj</span></span><br><span class="line"><span class="keyword">new</span> Thread()&#123;</span><br><span class="line">     <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                       </span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"> &#125;.start();ß</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="Method-2"><a href="#Method-2" class="headerlink" title="Method 2:"></a>Method 2:</h3><ol>
+<li>decalre Mythread class and implement runnable interface</li>
+<li>implemrnt run method</li>
+<li>decalre Mythread obj</li>
+<li>decalre thread obj and pass Mythread obj as parameter</li>
+<li>threadObj.start() <h3 id="mutiple-thread"><a href="#mutiple-thread" class="headerlink" title="mutiple thread:"></a>mutiple thread:</h3></li>
+</ol>
+<ul>
+<li>when using the same MyThreadObj to declre mutiple thread, those threads are sharing one obj with the same data (attributes) </li>
+</ul>
+<hr>
+<h2 id="Method-in-thread-class"><a href="#Method-in-thread-class" class="headerlink" title="Method in thread class"></a>Method in thread class</h2><h3 id="Thread-currentThread"><a href="#Thread-currentThread" class="headerlink" title="Thread.currentThread()"></a>Thread.currentThread()</h3><ul>
+<li>get the current thread</li>
+</ul>
+<h3 id="yield"><a href="#yield" class="headerlink" title="yield()"></a>yield()</h3><ul>
+<li>tell cpu to halt the current and give the execution chance to other threads</li>
+<li>the scheduling is depend on operating system not the thread</li>
+</ul>
+<h3 id="join"><a href="#join" class="headerlink" title="join()"></a>join()</h3><ul>
+<li>wait until other thread to complete</li>
+<li>currentThread will be blocked until other thread has completed<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    ObjNeedToCompletBeforeMe.join();</span><br><span class="line">&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="sleep-long-millisecond"><a href="#sleep-long-millisecond" class="headerlink" title="sleep(long millisecond)"></a>sleep(long millisecond)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">     sleep(<span class="number">10000</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="isAlive"><a href="#isAlive" class="headerlink" title="isAlive()"></a>isAlive()</h3><hr>
+<h2 id="Thread-priority"><a href="#Thread-priority" class="headerlink" title="Thread priority"></a>Thread priority</h2><h3 id="final-static-int-variable"><a href="#final-static-int-variable" class="headerlink" title="final static int variable"></a>final static int variable</h3><ul>
+<li>MIN_PRIORITY = 1</li>
+<li>NORM_PRIORITY = 5</li>
+<li>MAX_PRIORITY = 10</li>
+</ul>
+<h3 id="getPriority"><a href="#getPriority" class="headerlink" title="getPriority()"></a>getPriority()</h3><h3 id="setPriority-set-before-the-thread-start"><a href="#setPriority-set-before-the-thread-start" class="headerlink" title="setPriority() //set before the thread start"></a>setPriority() //set before the thread start</h3><hr>
+<h2 id="Thread-status"><a href="#Thread-status" class="headerlink" title="Thread.status"></a>Thread.status</h2><ul>
+<li>NEW -&gt; not yet started</li>
+<li>RUNNABLE</li>
+<li>WAITING</li>
+<li>TIMED_WAITING</li>
+<li>TERMINATED</li>
+</ul>
+<img src="/images/Java-Thread-Life-Cycle.png" class="" width="600" height="600" title="Thread life cycle">
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/29/Head-First-Java-Chapter-5-6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -404,7 +606,7 @@ function category_js () {
 </ul>
 <h3 id="Casting"><a href="#Casting" class="headerlink" title="Casting"></a>Casting</h3><p>When changing a bigger obj to smaller obj, casting is need (lose accuracy)</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//eg</span></span><br><span class="line"><span class="keyword">long</span> x = <span class="number">8</span>;</span><br><span class="line"><span class="keyword">int</span> y = (<span class="keyword">int</span>) x;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//weird result when the range is exceed the smaller obj</span></span><br><span class="line"><span class="keyword">long</span> y = <span class="number">40002</span>;</span><br><span class="line"><span class="keyword">short</span> x = (<span class="keyword">short</span>) y;</span><br><span class="line">System.out.println(x);  <span class="comment">//-25534</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//weird result when the range exceed the smaller obj</span></span><br><span class="line"><span class="keyword">long</span> y = <span class="number">40002</span>;</span><br><span class="line"><span class="keyword">short</span> x = (<span class="keyword">short</span>) y;</span><br><span class="line">System.out.println(x);  <span class="comment">//-25534</span></span><br></pre></td></tr></table></figure>
 
 <hr>
 <h2 id="Chapter-6"><a href="#Chapter-6" class="headerlink" title="Chapter 6"></a>Chapter 6</h2><h3 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h3><p>ArrayList is a class</p>
@@ -1738,172 +1940,6 @@ Result<figure class="highlight java"><table><tr><td class="gutter"><pre><span cl
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/25/Deploy-Hexo-on-github/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Tech Dustdojo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Tech Dustdojo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/12/25/Deploy-Hexo-on-github/" itemprop="url">Deploy Hexo on github</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-25T12:58:49+08:00">
-                2019-12-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Static-Web/" itemprop="url" rel="index">
-                    <span itemprop="name">Static Web</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Static-Web/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Create-a-new-git-repository"><a href="#Create-a-new-git-repository" class="headerlink" title="Create a new git repository"></a>Create a new git repository</h2><ul>
-<li>The repository name must fulfill the following requirement</li>
-<li>xxx.github.io, where xxx is the github id.</li>
-</ul>
-<h2 id="Install-hexo-deployer-git"><a href="#Install-hexo-deployer-git" class="headerlink" title="Install hexo-deployer-git"></a>Install hexo-deployer-git</h2><ul>
-<li>go to the blog dir</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
-
-<p>Configure the gobal hexo config file (_config.yml)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Path blog/_config.yml</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#append following code in the end of the file</span></span><br><span class="line"></span><br><span class="line">deploy:<span class="built_in">type</span>: git</span><br><span class="line">repository: https://github.com/xxx/xxx.github.io <span class="comment"># where xxx is the github id.</span></span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="Depoly"><a href="#Depoly" class="headerlink" title="Depoly"></a>Depoly</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo d <span class="comment"># enter the github id and password</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#xxx.github.io is now hosting the blog</span></span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1954,7 +1990,7 @@ Result<figure class="highlight java"><table><tr><td class="gutter"><pre><span cl
               
                 <a href="/archives%7C%7C%20archive">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

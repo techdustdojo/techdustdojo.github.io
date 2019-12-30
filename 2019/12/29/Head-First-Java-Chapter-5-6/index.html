@@ -87,7 +87,7 @@
 <meta property="og:description" content="Chapter 5 Workflow of developing a class  figure out what the class should do    list the attributes and methods    write the test class    implement the class    test    debug    CastingWhen changing">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-12-29T09:14:14.000Z">
-<meta property="article:modified_time" content="2019-12-29T16:43:29.227Z">
+<meta property="article:modified_time" content="2019-12-29T16:44:26.431Z">
 <meta property="article:author" content="Tech Dustdojo">
 <meta property="article:tag" content="JavaSE">
 <meta name="twitter:card" content="summary">
@@ -404,7 +404,7 @@ function category_js () {
 </ul>
 <h3 id="Casting"><a href="#Casting" class="headerlink" title="Casting"></a>Casting</h3><p>When changing a bigger obj to smaller obj, casting is need (lose accuracy)</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//eg</span></span><br><span class="line"><span class="keyword">long</span> x = <span class="number">8</span>;</span><br><span class="line"><span class="keyword">int</span> y = (<span class="keyword">int</span>) x;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//weird result when the range is exceed the smaller obj</span></span><br><span class="line"><span class="keyword">long</span> y = <span class="number">40002</span>;</span><br><span class="line"><span class="keyword">short</span> x = (<span class="keyword">short</span>) y;</span><br><span class="line">System.out.println(x);  <span class="comment">//-25534</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//weird result when the range exceed the smaller obj</span></span><br><span class="line"><span class="keyword">long</span> y = <span class="number">40002</span>;</span><br><span class="line"><span class="keyword">short</span> x = (<span class="keyword">short</span>) y;</span><br><span class="line">System.out.println(x);  <span class="comment">//-25534</span></span><br></pre></td></tr></table></figure>
 
 <hr>
 <h2 id="Chapter-6"><a href="#Chapter-6" class="headerlink" title="Chapter 6"></a>Chapter 6</h2><h3 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h3><p>ArrayList is a class</p>
@@ -469,6 +469,10 @@ function category_js () {
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/12/30/Thread-in-Java/" rel="prev" title="Thread in Java">
+                Thread in Java <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -545,7 +549,7 @@ function category_js () {
               
                 <a href="/archives%7C%7C%20archive">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
