@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="JavaSE,Thread," />
+  <meta name="keywords" content="JavaSE,Exception," />
 
 
 
@@ -79,19 +79,21 @@
 
 
 
-<meta name="description" content="Synchronized code block method synchronized(synchronized monitor)   For class implement runnable interface: Synchronized monitor(lock) -&gt; any obj can act as a lock usually use the this obj as a loc">
+<meta name="description" content="Basic concept Exception is a class  all exception are extend from Exception class  when a method declare to throws exception, we need to handle it  If two Exception are inherit frome the same super ex">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Thread synchronization in  java">
-<meta property="og:url" content="http://yoursite.com/2019/12/30/Thread-synchronization-in-java/index.html">
+<meta property="og:title" content="Head First Java Chapter 11 Exception">
+<meta property="og:url" content="http://yoursite.com/2019/12/30/Head-First-Java-Chapter-11-Exception/index.html">
 <meta property="og:site_name" content="Tech Dustdojo">
-<meta property="og:description" content="Synchronized code block method synchronized(synchronized monitor)   For class implement runnable interface: Synchronized monitor(lock) -&gt; any obj can act as a lock usually use the this obj as a loc">
+<meta property="og:description" content="Basic concept Exception is a class  all exception are extend from Exception class  when a method declare to throws exception, we need to handle it  If two Exception are inherit frome the same super ex">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2019-12-30T07:27:33.000Z">
-<meta property="article:modified_time" content="2019-12-30T09:48:09.666Z">
+<meta property="og:image" content="http://yoursite.com/images/inheritance-tree-of-exception-class.png">
+<meta property="article:published_time" content="2019-12-30T15:15:17.000Z">
+<meta property="article:modified_time" content="2019-12-30T17:04:38.746Z">
 <meta property="article:author" content="Tech Dustdojo">
 <meta property="article:tag" content="JavaSE">
-<meta property="article:tag" content="Thread">
+<meta property="article:tag" content="Exception">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/images/inheritance-tree-of-exception-class.png">
 
 
 
@@ -121,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/12/30/Thread-synchronization-in-java/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/12/30/Head-First-Java-Chapter-11-Exception/"/>
 
 
 
 
 
-  <title>Thread synchronization in  java | Tech Dustdojo</title>
+  <title>Head First Java Chapter 11 Exception | Tech Dustdojo</title>
   
 
 
@@ -276,7 +278,7 @@ function category_js () {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/30/Thread-synchronization-in-java/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/30/Head-First-Java-Chapter-11-Exception/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Tech Dustdojo">
@@ -293,7 +295,7 @@ function category_js () {
 
         
         
-          <h1 class="post-title" itemprop="name headline">Thread synchronization in  java</h1>
+          <h1 class="post-title" itemprop="name headline">Head First Java Chapter 11 Exception</h1>
         
 
         <div class="post-meta">
@@ -305,7 +307,7 @@ function category_js () {
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-30T15:27:33+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-30T23:15:17+08:00">
                 2019-12-30
               </time>
             
@@ -328,8 +330,19 @@ function category_js () {
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaSE/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaSE</span>
+                  <a href="/categories/Book/" itemprop="url" rel="index">
+                    <span itemprop="name">Book</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Book/Head-First-Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Head First Java</span>
                   </a>
                 </span>
 
@@ -365,38 +378,47 @@ function category_js () {
       
 
       
-        <h2 id="Synchronized-code-block-method"><a href="#Synchronized-code-block-method" class="headerlink" title="Synchronized code block method"></a>Synchronized code block method</h2><ul>
-<li>synchronized(synchronized monitor)</li>
+        <h2 id="Basic-concept"><a href="#Basic-concept" class="headerlink" title="Basic concept"></a>Basic concept</h2><ul>
+<li><p>Exception is a class</p>
+</li>
+<li><p>all exception are extend from Exception class</p>
+</li>
+<li><p>when a method declare to throws exception, we need to handle it</p>
+</li>
+<li><p>If two Exception are inherit frome the same super exception class and have the same handling method, we can catch their exception class in one catch block</p>
+</li>
+<li><p>When throwing an exception, the call of the method need to handle it, by throwing it again to the upper method(until the main) or catch it.</p>
+</li>
+<li><p>if the upper method also want to throws the exception, it should decalre the throw statement in its decoration</p>
+</li>
+<li><p>Compiler will forece programmer to handle all kinds of exceptions except the RuntimeException</p>
+</li>
+<li><p>RuntimeException is usually cause by code logic which cannot predict or prevent</p>
+</li>
 </ul>
-<hr>
-<h3 id="For-class-implement-runnable-interface"><a href="#For-class-implement-runnable-interface" class="headerlink" title="For class implement runnable interface:"></a>For class implement runnable interface:</h3><ul>
-<li>Synchronized monitor(lock) -&gt; any obj can act as a lock</li>
-<li>usually use the this obj as a lock<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span>(<span class="keyword">this</span>)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>above method usually use when the class implement runnable interface since they share the same class obj </li>
+<h2 id="Two-ways-to-handle-exception"><a href="#Two-ways-to-handle-exception" class="headerlink" title="Two ways to handle exception"></a>Two ways to handle exception</h2><h3 id="try-catch-finally-block"><a href="#try-catch-finally-block" class="headerlink" title="try catch finally block"></a>try catch finally block</h3><ul>
+<li>if return statement inside try or catch block, finally block will still be execte and then return</li>
 </ul>
-<h3 id="For-class-extends-Thread-class"><a href="#For-class-extends-Thread-class" class="headerlink" title="For class extends Thread class"></a>For class extends Thread class</h3><hr>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span>(ClassName<span class="class">.<span class="keyword">class</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>above method usually use when the class extends the Thread class. ClassName.class is also an obj</li>
-</ul>
-<hr>
-<ul>
-<li><em>make sure the threads are using the same lock(obj) in both two method</em></li>
-</ul>
-<hr>
-<h2 id="Synchronized-method"><a href="#Synchronized-method" class="headerlink" title="Synchronized method"></a>Synchronized method</h2><h3 id="For-class-implement-runnable-interface-1"><a href="#For-class-implement-runnable-interface-1" class="headerlink" title="For class implement runnable interface:"></a>For class implement runnable interface:</h3><ul>
-<li>decalre a Synchronized method<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// synchronized monitor is this</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+<h3 id="throws-exception"><a href="#throws-exception" class="headerlink" title="throws exception"></a>throws exception</h3><ul>
+<li>to throw an exception simply decalre it in method decoration<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">pubilc <span class="keyword">void</span> <span class="title">openFile</span><span class="params">()</span> <span class="keyword">throws</span> fileNotExitException, fileInUseException</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
-<h3 id="For-class-extends-Thread-class-1"><a href="#For-class-extends-Thread-class-1" class="headerlink" title="For class extends Thread class"></a>For class extends Thread class</h3><ul>
-<li>decalre a static method </li>
+<h2 id="Catching-exception"><a href="#Catching-exception" class="headerlink" title="Catching exception"></a>Catching exception</h2><img src="/images/inheritance-tree-of-exception-class.png" class="" width="600" height="600" title="Inheritance tree of exception class">
+<h3 id="Catching-mutilple-exception"><a href="#Catching-mutilple-exception" class="headerlink" title="Catching mutilple exception"></a>Catching mutilple exception</h3><ul>
+<li>we should catch the child exception first</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// synchronized monitor is Classname.class</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> IOException(<span class="string">"IO Exception"</span>);</span><br><span class="line"></span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException ioe) &#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line"></span><br><span class="line">&#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts"></a>Concepts</h2><ol>
+<li>catch and finally cannot be use without try</li>
+<li>no code between try and catch</li>
+<li>try must follow catch or finally</li>
+</ol>
+<ul>
+<li><em>4. try finally block must throw exception</em></li>
+</ul>
+
       
     </div>
     
@@ -415,7 +437,7 @@ function category_js () {
           
             <a href="/tags/JavaSE/" rel="tag"># JavaSE</a>
           
-            <a href="/tags/Thread/" rel="tag"># Thread</a>
+            <a href="/tags/Exception/" rel="tag"># Exception</a>
           
         </div>
       
@@ -428,8 +450,8 @@ function category_js () {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/30/Thread-in-Java/" rel="next" title="Thread in Java">
-                <i class="fa fa-chevron-left"></i> Thread in Java
+              <a href="/2019/12/30/Thread-Lock-in-java/" rel="next" title="Thread Lock in  java">
+                <i class="fa fa-chevron-left"></i> Thread Lock in  java
               </a>
             
           </div>
@@ -437,10 +459,6 @@ function category_js () {
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/12/30/Thread-Lock-in-java/" rel="prev" title="Thread Lock in  java">
-                Thread Lock in  java <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -572,7 +590,7 @@ function category_js () {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Synchronized-code-block-method"><span class="nav-number">1.</span> <span class="nav-text">Synchronized code block method</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#For-class-implement-runnable-interface"><span class="nav-number">1.1.</span> <span class="nav-text">For class implement runnable interface:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#For-class-extends-Thread-class"><span class="nav-number">1.2.</span> <span class="nav-text">For class extends Thread class</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Synchronized-method"><span class="nav-number">2.</span> <span class="nav-text">Synchronized method</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#For-class-implement-runnable-interface-1"><span class="nav-number">2.1.</span> <span class="nav-text">For class implement runnable interface:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#For-class-extends-Thread-class-1"><span class="nav-number">2.2.</span> <span class="nav-text">For class extends Thread class</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-concept"><span class="nav-number">1.</span> <span class="nav-text">Basic concept</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Two-ways-to-handle-exception"><span class="nav-number">2.</span> <span class="nav-text">Two ways to handle exception</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#try-catch-finally-block"><span class="nav-number">2.1.</span> <span class="nav-text">try catch finally block</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#throws-exception"><span class="nav-number">2.2.</span> <span class="nav-text">throws exception</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Catching-exception"><span class="nav-number">3.</span> <span class="nav-text">Catching exception</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Catching-mutilple-exception"><span class="nav-number">3.1.</span> <span class="nav-text">Catching mutilple exception</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Concepts"><span class="nav-number">4.</span> <span class="nav-text">Concepts</span></a></li></ol></div>
             
 
           </div>
