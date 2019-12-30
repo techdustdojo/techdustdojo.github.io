@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="JavaSE," />
+  <meta name="keywords" content="JavaSE,Thread," />
 
 
 
@@ -79,20 +79,19 @@
 
 
 
-<meta name="description" content="Basic concept Threads have indepent stack and programme counter Threads share same heap, and method area A java programme has at least 3 threads including main, garbage collection, and exception handl">
+<meta name="description" content="Synchronized code block method synchronized(synchronized monitor)   For class implement runnable interface: Synchronized monitor(lock) -&gt; any obj can act as a lock usually use the this obj as a loc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Thread in Java">
-<meta property="og:url" content="http://yoursite.com/2019/12/30/Thread-in-Java/index.html">
+<meta property="og:title" content="Thread synchronization in  java">
+<meta property="og:url" content="http://yoursite.com/2019/12/30/Thread-synchronization-in-java/index.html">
 <meta property="og:site_name" content="Tech Dustdojo">
-<meta property="og:description" content="Basic concept Threads have indepent stack and programme counter Threads share same heap, and method area A java programme has at least 3 threads including main, garbage collection, and exception handl">
+<meta property="og:description" content="Synchronized code block method synchronized(synchronized monitor)   For class implement runnable interface: Synchronized monitor(lock) -&gt; any obj can act as a lock usually use the this obj as a loc">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/images/Java-Thread-Life-Cycle.png">
-<meta property="article:published_time" content="2019-12-30T04:04:39.000Z">
-<meta property="article:modified_time" content="2019-12-30T06:48:48.022Z">
+<meta property="article:published_time" content="2019-12-30T07:27:33.000Z">
+<meta property="article:modified_time" content="2019-12-30T09:48:09.666Z">
 <meta property="article:author" content="Tech Dustdojo">
 <meta property="article:tag" content="JavaSE">
+<meta property="article:tag" content="Thread">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/images/Java-Thread-Life-Cycle.png">
 
 
 
@@ -122,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/12/30/Thread-in-Java/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/12/30/Thread-synchronization-in-java/"/>
 
 
 
 
 
-  <title>Thread in Java | Tech Dustdojo</title>
+  <title>Thread synchronization in  java | Tech Dustdojo</title>
   
 
 
@@ -277,7 +276,7 @@ function category_js () {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/30/Thread-in-Java/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/30/Thread-synchronization-in-java/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Tech Dustdojo">
@@ -294,7 +293,7 @@ function category_js () {
 
         
         
-          <h1 class="post-title" itemprop="name headline">Thread in Java</h1>
+          <h1 class="post-title" itemprop="name headline">Thread synchronization in  java</h1>
         
 
         <div class="post-meta">
@@ -306,7 +305,7 @@ function category_js () {
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-30T12:04:39+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-30T15:27:33+08:00">
                 2019-12-30
               </time>
             
@@ -366,68 +365,38 @@ function category_js () {
       
 
       
-        <h2 id="Basic-concept"><a href="#Basic-concept" class="headerlink" title="Basic concept"></a>Basic concept</h2><ul>
-<li>Threads have indepent stack and programme counter</li>
-<li>Threads share same heap, and method area</li>
-<li>A java programme has at least 3 threads including main, garbage collection, and exception handle.</li>
-<li>There are 2 types of threads</li>
-<li>Daemon thread eg: garbage collection, and exception handle thread</li>
-<li>User thread eg: main </li>
-<li>Daemon will automatically stop if user thread stops </li>
-</ul>
-<h2 id="Create-Thread"><a href="#Create-Thread" class="headerlink" title="Create Thread"></a>Create Thread</h2><h3 id="Method-1"><a href="#Method-1" class="headerlink" title="Method 1:"></a>Method 1:</h3><ol>
-<li>inherit the Thread class</li>
-<li>override run method</li>
-<li>create obj</li>
-<li><em>obj.start()</em>    //not run(), run() will not create a new thread</li>
-</ol>
-<ul>
-<li>Start() -&gt;causes JVM will automatically call run method</li>
-<li>one obj can only create one thread only</li>
-<li>multiple objs is required to create mutilple threads<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//create thread using anonymous obj</span></span><br><span class="line"><span class="keyword">new</span> Thread()&#123;</span><br><span class="line">     <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                       </span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"> &#125;.start();ß</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="Method-2"><a href="#Method-2" class="headerlink" title="Method 2:"></a>Method 2:</h3><ol>
-<li>decalre Mythread class and implement runnable interface</li>
-<li>implemrnt run method</li>
-<li>decalre Mythread obj</li>
-<li>decalre thread obj and pass Mythread obj as parameter</li>
-<li>threadObj.start() <h3 id="mutiple-thread"><a href="#mutiple-thread" class="headerlink" title="mutiple thread:"></a>mutiple thread:</h3></li>
-</ol>
-<ul>
-<li>when using the same MyThreadObj to declre mutiple thread, those threads are sharing one obj with the same data (attributes) </li>
+        <h2 id="Synchronized-code-block-method"><a href="#Synchronized-code-block-method" class="headerlink" title="Synchronized code block method"></a>Synchronized code block method</h2><ul>
+<li>synchronized(synchronized monitor)</li>
 </ul>
 <hr>
-<h2 id="Method-in-thread-class"><a href="#Method-in-thread-class" class="headerlink" title="Method in thread class"></a>Method in thread class</h2><h3 id="Thread-currentThread"><a href="#Thread-currentThread" class="headerlink" title="Thread.currentThread()"></a>Thread.currentThread()</h3><ul>
-<li>get the current thread</li>
+<h3 id="For-class-implement-runnable-interface"><a href="#For-class-implement-runnable-interface" class="headerlink" title="For class implement runnable interface:"></a>For class implement runnable interface:</h3><ul>
+<li>Synchronized monitor(lock) -&gt; any obj can act as a lock</li>
+<li>usually use the this obj as a lock<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span>(<span class="keyword">this</span>)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>above method usually use when the class implement runnable interface since they share the same class obj </li>
 </ul>
-<h3 id="yield"><a href="#yield" class="headerlink" title="yield()"></a>yield()</h3><ul>
-<li>tell cpu to halt the current and give the execution chance to other threads</li>
-<li>the scheduling is depend on operating system not the thread</li>
+<h3 id="For-class-extends-Thread-class"><a href="#For-class-extends-Thread-class" class="headerlink" title="For class extends Thread class"></a>For class extends Thread class</h3><hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span>(ClassName<span class="class">.<span class="keyword">class</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>above method usually use when the class extends the Thread class. ClassName.class is also an obj</li>
 </ul>
-<h3 id="join"><a href="#join" class="headerlink" title="join()"></a>join()</h3><ul>
-<li>wait until other thread to complete</li>
-<li>currentThread will be blocked until other thread has completed<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    ObjNeedToCompletBeforeMe.join();</span><br><span class="line">&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<ul>
+<li><em>make sure the threads are using the same lock(obj) in both two method</em></li>
+</ul>
+<hr>
+<h2 id="Synchronized-method"><a href="#Synchronized-method" class="headerlink" title="Synchronized method"></a>Synchronized method</h2><h3 id="For-class-implement-runnable-interface-1"><a href="#For-class-implement-runnable-interface-1" class="headerlink" title="For class implement runnable interface:"></a>For class implement runnable interface:</h3><ul>
+<li>decalre a Synchronized method<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// synchronized monitor is this</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 
 </li>
 </ul>
-<h3 id="sleep-long-millisecond"><a href="#sleep-long-millisecond" class="headerlink" title="sleep(long millisecond)"></a>sleep(long millisecond)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">     sleep(<span class="number">10000</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="isAlive"><a href="#isAlive" class="headerlink" title="isAlive()"></a>isAlive()</h3><hr>
-<h2 id="Thread-priority"><a href="#Thread-priority" class="headerlink" title="Thread priority"></a>Thread priority</h2><h3 id="final-static-int-variable"><a href="#final-static-int-variable" class="headerlink" title="final static int variable"></a>final static int variable</h3><ul>
-<li>MIN_PRIORITY = 1</li>
-<li>NORM_PRIORITY = 5</li>
-<li>MAX_PRIORITY = 10</li>
+<hr>
+<h3 id="For-class-extends-Thread-class-1"><a href="#For-class-extends-Thread-class-1" class="headerlink" title="For class extends Thread class"></a>For class extends Thread class</h3><ul>
+<li>decalre a static method </li>
 </ul>
-<h3 id="getPriority"><a href="#getPriority" class="headerlink" title="getPriority()"></a>getPriority()</h3><h3 id="setPriority-set-before-the-thread-start"><a href="#setPriority-set-before-the-thread-start" class="headerlink" title="setPriority() //set before the thread start"></a>setPriority() //set before the thread start</h3><hr>
-<h2 id="Thread-status"><a href="#Thread-status" class="headerlink" title="Thread.status"></a>Thread.status</h2><ul>
-<li>NEW -&gt; not yet started</li>
-<li>RUNNABLE</li>
-<li>WAITING</li>
-<li>TIMED_WAITING</li>
-<li>TERMINATED</li>
-</ul>
-<img src="/images/Java-Thread-Life-Cycle.png" class="" width="600" height="600" title="Thread life cycle">
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// synchronized monitor is Classname.class</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -446,6 +415,8 @@ function category_js () {
           
             <a href="/tags/JavaSE/" rel="tag"># JavaSE</a>
           
+            <a href="/tags/Thread/" rel="tag"># Thread</a>
+          
         </div>
       
 
@@ -457,8 +428,8 @@ function category_js () {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/29/Head-First-Java-Chapter-5-6/" rel="next" title="Head First Java Chapter 5 - 6">
-                <i class="fa fa-chevron-left"></i> Head First Java Chapter 5 - 6
+              <a href="/2019/12/30/Thread-in-Java/" rel="next" title="Thread in Java">
+                <i class="fa fa-chevron-left"></i> Thread in Java
               </a>
             
           </div>
@@ -467,8 +438,8 @@ function category_js () {
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/12/30/Thread-synchronization-in-java/" rel="prev" title="Thread synchronization in  java">
-                Thread synchronization in  java <i class="fa fa-chevron-right"></i>
+              <a href="/2019/12/30/Thread-Lock-in-java/" rel="prev" title="Thread Lock in  java">
+                Thread Lock in  java <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -601,7 +572,7 @@ function category_js () {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-concept"><span class="nav-number">1.</span> <span class="nav-text">Basic concept</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Create-Thread"><span class="nav-number">2.</span> <span class="nav-text">Create Thread</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Method-1"><span class="nav-number">2.1.</span> <span class="nav-text">Method 1:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Method-2"><span class="nav-number">2.2.</span> <span class="nav-text">Method 2:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mutiple-thread"><span class="nav-number">2.3.</span> <span class="nav-text">mutiple thread:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method-in-thread-class"><span class="nav-number">3.</span> <span class="nav-text">Method in thread class</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Thread-currentThread"><span class="nav-number">3.1.</span> <span class="nav-text">Thread.currentThread()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#yield"><span class="nav-number">3.2.</span> <span class="nav-text">yield()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#join"><span class="nav-number">3.3.</span> <span class="nav-text">join()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sleep-long-millisecond"><span class="nav-number">3.4.</span> <span class="nav-text">sleep(long millisecond)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#isAlive"><span class="nav-number">3.5.</span> <span class="nav-text">isAlive()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Thread-priority"><span class="nav-number">4.</span> <span class="nav-text">Thread priority</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#final-static-int-variable"><span class="nav-number">4.1.</span> <span class="nav-text">final static int variable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getPriority"><span class="nav-number">4.2.</span> <span class="nav-text">getPriority()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setPriority-set-before-the-thread-start"><span class="nav-number">4.3.</span> <span class="nav-text">setPriority() &#x2F;&#x2F;set before the thread start</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Thread-status"><span class="nav-number">5.</span> <span class="nav-text">Thread.status</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Synchronized-code-block-method"><span class="nav-number">1.</span> <span class="nav-text">Synchronized code block method</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#For-class-implement-runnable-interface"><span class="nav-number">1.1.</span> <span class="nav-text">For class implement runnable interface:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#For-class-extends-Thread-class"><span class="nav-number">1.2.</span> <span class="nav-text">For class extends Thread class</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Synchronized-method"><span class="nav-number">2.</span> <span class="nav-text">Synchronized method</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#For-class-implement-runnable-interface-1"><span class="nav-number">2.1.</span> <span class="nav-text">For class implement runnable interface:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#For-class-extends-Thread-class-1"><span class="nav-number">2.2.</span> <span class="nav-text">For class extends Thread class</span></a></li></ol></li></ol></div>
             
 
           </div>
