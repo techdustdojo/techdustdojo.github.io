@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="JavaSE," />
+  <meta name="keywords" content="JavaSE,GUI," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="Chapter 1 Compilier work flow.java source file -&gt; compilier -&gt; .class -&gt; JVM -&gt; run  every class will compiler to a .class file even they are in the same source file  How to compiler and r">
+<meta name="description" content="Basic Concept JFrame is a class to represent the windows in screen  Widgets: JButton JRadioButton JCheckBox JLabel JList JSrcollPane…. are all widget classes can be place in JFrame    Simple operation">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Head First Java Chapter 1 - 4">
-<meta property="og:url" content="http://yoursite.com/2019/12/29/Head-First-Java-Chapter-1-4/index.html">
+<meta property="og:title" content="Head First Java Chapter 12 GUI">
+<meta property="og:url" content="http://yoursite.com/2019/12/31/Head-First-Java-Chapter-12-GUI/index.html">
 <meta property="og:site_name" content="Tech Dustdojo">
-<meta property="og:description" content="Chapter 1 Compilier work flow.java source file -&gt; compilier -&gt; .class -&gt; JVM -&gt; run  every class will compiler to a .class file even they are in the same source file  How to compiler and r">
+<meta property="og:description" content="Basic Concept JFrame is a class to represent the windows in screen  Widgets: JButton JRadioButton JCheckBox JLabel JList JSrcollPane…. are all widget classes can be place in JFrame    Simple operation">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2019-12-29T04:02:04.000Z">
-<meta property="article:modified_time" content="2019-12-29T16:40:57.061Z">
+<meta property="article:published_time" content="2019-12-31T06:47:48.000Z">
+<meta property="article:modified_time" content="2020-01-01T07:29:32.883Z">
 <meta property="article:author" content="Tech Dustdojo">
 <meta property="article:tag" content="JavaSE">
+<meta property="article:tag" content="GUI">
 <meta name="twitter:card" content="summary">
 
 
@@ -120,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/12/29/Head-First-Java-Chapter-1-4/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/12/31/Head-First-Java-Chapter-12-GUI/"/>
 
 
 
 
 
-  <title>Head First Java Chapter 1 - 4 | Tech Dustdojo</title>
+  <title>Head First Java Chapter 12 GUI | Tech Dustdojo</title>
   
 
 
@@ -275,7 +276,7 @@ function category_js () {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/29/Head-First-Java-Chapter-1-4/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/31/Head-First-Java-Chapter-12-GUI/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Tech Dustdojo">
@@ -292,7 +293,7 @@ function category_js () {
 
         
         
-          <h1 class="post-title" itemprop="name headline">Head First Java Chapter 1 - 4</h1>
+          <h1 class="post-title" itemprop="name headline">Head First Java Chapter 12 GUI</h1>
         
 
         <div class="post-meta">
@@ -304,8 +305,8 @@ function category_js () {
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-29T12:02:04+08:00">
-                2019-12-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-31T14:47:48+08:00">
+                2019-12-31
               </time>
             
 
@@ -375,64 +376,39 @@ function category_js () {
       
 
       
-        <h2 id="Chapter-1"><a href="#Chapter-1" class="headerlink" title="Chapter 1"></a>Chapter 1</h2><hr>
-<h3 id="Compilier-work-flow"><a href="#Compilier-work-flow" class="headerlink" title="Compilier work flow"></a>Compilier work flow</h3><p>.java source file -&gt; compilier -&gt; .class -&gt; JVM -&gt; run</p>
-<ul>
-<li>every class will compiler to a .class file even they are in the same source file</li>
-</ul>
-<h3 id="How-to-compiler-and-run-java-programme"><a href="#How-to-compiler-and-run-java-programme" class="headerlink" title="How to compiler and run java programme"></a>How to compiler and run java programme</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">javac Source.java</span><br><span class="line">java Source</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="Basic-concept"><a href="#Basic-concept" class="headerlink" title="Basic concept"></a>Basic concept</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span>(i)&#123;</span><br><span class="line">    <span class="comment">//wrong</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>int value cannot be used in condition checking.</li>
-</ul>
-<hr>
-<h2 id="Chapter-2"><a href="#Chapter-2" class="headerlink" title="Chapter 2"></a>Chapter 2</h2><p>When child class extends super class</p>
-<ul>
-<li>all method and attributes will be inheritance from super <em>except</em> private method and attributes.</li>
-<li>child class can override method in super class</li>
-</ul>
-<p>All object live in heap no matter how is it created</p>
-<hr>
-<h2 id="Chapter-3"><a href="#Chapter-3" class="headerlink" title="Chapter 3"></a>Chapter 3</h2><p>floating-point number default type is double.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">byte</span> i = <span class="number">23.5</span>; <span class="comment">// wrong</span></span><br><span class="line"><span class="keyword">byte</span> i = <span class="number">23.5f</span>; <span class="comment">//right</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li>obj name in Java is reference only</li>
-<li>obj name can be reuse to reference different obj of the same type</li>
-<li>when an obj do not have any reference to access, it will be clean by the garbage collector</li>
-</ul>
-<hr>
-<h2 id="Chapter-4"><a href="#Chapter-4" class="headerlink" title="Chapter 4"></a>Chapter 4</h2><ul>
-<li>When passing obj to method, we are passing a copy of the reference to the method, not the obj itself</li>
-<li>The return value of a method must compatible with the declared type</li>
-</ul>
-<h3 id="Encapsulation"><a href="#Encapsulation" class="headerlink" title="Encapsulation"></a>Encapsulation</h3><ul>
-<li>set the attributes to private and create setter and getter</li>
-<li>-&gt; ensure the data integrity</li>
-</ul>
-<h3 id="Default-value-of-instace-variable-obj-attributes"><a href="#Default-value-of-instace-variable-obj-attributes" class="headerlink" title="Default value of instace variable (obj attributes)"></a>Default value of instace variable (obj attributes)</h3><ul>
-<li>int/floting point number -&gt; 0/0.0</li>
-<li>bollean -&gt; false</li>
-<li>obj reference -&gt; null</li>
-</ul>
-<h3 id="Local-variable-variable-inside-method-do-not-have-default-value"><a href="#Local-variable-variable-inside-method-do-not-have-default-value" class="headerlink" title="Local variable (variable inside method) do not have default value"></a>Local variable (variable inside method) do not have default value</h3><ul>
-<li>intialization must be done before use</li>
-</ul>
-<h3 id="and-equal-method"><a href="#and-equal-method" class="headerlink" title="== and .equal() method"></a>== and .equal() method</h3><ul>
-<li>== is used to check if two obj reference refer to the same obj </li>
-<li>except one or both side of the == is numeric type number</li>
-<li>see the example below<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                <span class="comment">// write your code here</span></span><br><span class="line">                <span class="keyword">float</span> p = (<span class="keyword">float</span>)(<span class="number">25</span>);</span><br><span class="line">                <span class="keyword">double</span> q = (<span class="keyword">double</span>)(<span class="number">25</span>);</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">                <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">if</span> (p == q) &#123;</span><br><span class="line">                    result = <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    result = <span class="number">2</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(<span class="string">"result is "</span>+result);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-Result<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">result is <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-
+        <h2 id="Basic-Concept"><a href="#Basic-Concept" class="headerlink" title="Basic Concept"></a>Basic Concept</h2><ul>
+<li><p>JFrame is a class to represent the windows in screen</p>
+</li>
+<li><p>Widgets: JButton JRadioButton JCheckBox JLabel JList JSrcollPane…. are all widget classes can be place in JFrame</p>
 </li>
 </ul>
-<ul>
-<li>.equal() method can be override to compare the actual meaning of equal</li>
+<hr>
+<h2 id="Simple-operation-of-JFrame"><a href="#Simple-operation-of-JFrame" class="headerlink" title="Simple operation of JFrame"></a>Simple operation of JFrame</h2><h3 id="Close-a-JFrame-on-click"><a href="#Close-a-JFrame-on-click" class="headerlink" title="Close a JFrame on click"></a>Close a JFrame on click</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">JFrame frame = <span class="keyword">new</span> JFrame();</span><br><span class="line">frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br></pre></td></tr></table></figure>
+<h3 id="Addd-button-checkbox…"><a href="#Addd-button-checkbox…" class="headerlink" title="Addd button checkbox…."></a>Addd button checkbox….</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">JButton button = <span class="keyword">new</span> JButton(<span class="string">"Enter"</span>);</span><br><span class="line">frame.getContentPane().add(button);</span><br></pre></td></tr></table></figure>
+<h3 id="Set-size-and-visiable"><a href="#Set-size-and-visiable" class="headerlink" title="Set size and visiable"></a>Set size and visiable</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">frame.setSize(<span class="number">500</span>,<span class="number">500</span>);</span><br><span class="line">frame.setVisible(<span class="keyword">true</span>);</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="ActionListener-and-ActionPerformed"><a href="#ActionListener-and-ActionPerformed" class="headerlink" title="ActionListener and ActionPerformed"></a>ActionListener and ActionPerformed</h2><h3 id="Mechanism"><a href="#Mechanism" class="headerlink" title="Mechanism"></a>Mechanism</h3><ol>
+<li><p>When user click on button, the JButton obj will automatically create a Event obj</p>
+</li>
+<li><p>If any class want to notify by this Event obj, it should implenment the ActionListner interface and register the ActionListner in the widget</p>
+</li>
+<li><p>ActionListener interface force will you implement the actionPerformed() method in your class</p>
+</li>
+<li><p>When user click on button, the JButton obj will automatically create a Event obj and pass it to the class who is listening and call the actionPerformed() method automatically</p>
+</li>
+</ol>
+<h3 id="Implementation-Workflow"><a href="#Implementation-Workflow" class="headerlink" title="Implementation Workflow"></a>Implementation Workflow</h3><ol>
+<li>implenment the ActionListener interface</li>
+<li>implenment the actionPerformed() method</li>
+<li>register the actionListener in the widget</li>
+</ol>
+<h2 id="Inner-Class"><a href="#Inner-Class" class="headerlink" title="Inner Class"></a>Inner Class</h2><ul>
+<li><p>Inner class can use all method and attributes in outter class even if they are private</p>
+</li>
+<li><p>Inner class obj is binded with the outter class obj, the instance inner obj can only access the method and attributes of the outter instance class obj who is binding with it</p>
+</li>
 </ul>
-
+<h3 id="example-of-inner-class-to-implenment-the-listener-of-two-button"><a href="#example-of-inner-class-to-implenment-the-listener-of-two-button" class="headerlink" title="example of inner class to implenment the listener of two button"></a>example of inner class to implenment the listener of two button</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUpGui</span><span class="params">()</span></span>&#123;</span><br><span class="line">        JFrame frame = <span class="keyword">new</span> JFrame();</span><br><span class="line">        JButton firstButton = <span class="keyword">new</span> JButton();</span><br><span class="line">        firstButton.addActionListener(<span class="keyword">new</span> firstListener());</span><br><span class="line">        JButton secondButton = <span class="keyword">new</span> JButton();</span><br><span class="line">        secondButton.addActionListener(<span class="keyword">new</span> secondButton());</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">firstListener</span> <span class="keyword">implements</span> <span class="title">ActionListener</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent actionEvent)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">secondButton</span> <span class="keyword">implements</span> <span class="title">ActionListener</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent actionEvent)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -451,6 +427,8 @@ Result<figure class="highlight java"><table><tr><td class="gutter"><pre><span cl
           
             <a href="/tags/JavaSE/" rel="tag"># JavaSE</a>
           
+            <a href="/tags/GUI/" rel="tag"># GUI</a>
+          
         </div>
       
 
@@ -462,8 +440,8 @@ Result<figure class="highlight java"><table><tr><td class="gutter"><pre><span cl
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/25/Access-Modifiers/" rel="next" title="Access Modifiers">
-                <i class="fa fa-chevron-left"></i> Access Modifiers
+              <a href="/2019/12/30/Head-First-Java-Chapter-11-Exception/" rel="next" title="Head First Java Chapter 11 Exception">
+                <i class="fa fa-chevron-left"></i> Head First Java Chapter 11 Exception
               </a>
             
           </div>
@@ -471,10 +449,6 @@ Result<figure class="highlight java"><table><tr><td class="gutter"><pre><span cl
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/12/29/Head-First-Java-Chapter-5-6/" rel="prev" title="Head First Java Chapter 5 - 6">
-                Head First Java Chapter 5 - 6 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -606,7 +580,7 @@ Result<figure class="highlight java"><table><tr><td class="gutter"><pre><span cl
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-1"><span class="nav-number">1.</span> <span class="nav-text">Chapter 1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Compilier-work-flow"><span class="nav-number">1.1.</span> <span class="nav-text">Compilier work flow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#How-to-compiler-and-run-java-programme"><span class="nav-number">1.2.</span> <span class="nav-text">How to compiler and run java programme</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Basic-concept"><span class="nav-number">1.3.</span> <span class="nav-text">Basic concept</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-2"><span class="nav-number">2.</span> <span class="nav-text">Chapter 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-3"><span class="nav-number">3.</span> <span class="nav-text">Chapter 3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">3.1.</span> <span class="nav-text">Reference</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-4"><span class="nav-number">4.</span> <span class="nav-text">Chapter 4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Encapsulation"><span class="nav-number">4.1.</span> <span class="nav-text">Encapsulation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Default-value-of-instace-variable-obj-attributes"><span class="nav-number">4.2.</span> <span class="nav-text">Default value of instace variable (obj attributes)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Local-variable-variable-inside-method-do-not-have-default-value"><span class="nav-number">4.3.</span> <span class="nav-text">Local variable (variable inside method) do not have default value</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#and-equal-method"><span class="nav-number">4.4.</span> <span class="nav-text">&#x3D;&#x3D; and .equal() method</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Concept"><span class="nav-number">1.</span> <span class="nav-text">Basic Concept</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Simple-operation-of-JFrame"><span class="nav-number">2.</span> <span class="nav-text">Simple operation of JFrame</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Close-a-JFrame-on-click"><span class="nav-number">2.1.</span> <span class="nav-text">Close a JFrame on click</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Addd-button-checkbox…"><span class="nav-number">2.2.</span> <span class="nav-text">Addd button checkbox….</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set-size-and-visiable"><span class="nav-number">2.3.</span> <span class="nav-text">Set size and visiable</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ActionListener-and-ActionPerformed"><span class="nav-number">3.</span> <span class="nav-text">ActionListener and ActionPerformed</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mechanism"><span class="nav-number">3.1.</span> <span class="nav-text">Mechanism</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Implementation-Workflow"><span class="nav-number">3.2.</span> <span class="nav-text">Implementation Workflow</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Inner-Class"><span class="nav-number">4.</span> <span class="nav-text">Inner Class</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#example-of-inner-class-to-implenment-the-listener-of-two-button"><span class="nav-number">4.1.</span> <span class="nav-text">example of inner class to implenment the listener of two button</span></a></li></ol></li></ol></div>
             
 
           </div>
