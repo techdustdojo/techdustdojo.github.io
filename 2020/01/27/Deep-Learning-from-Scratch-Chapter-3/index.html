@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="deep learning," />
 
 
 
@@ -79,15 +79,20 @@
 
 
 
+<meta name="description" content="Neural network The essence of neural network is to find the weighting and bias of perceptrons  Activation function Sigmoid  12def sigmoid(x):    return 1 &#x2F; (1 + np.exp(-x))   ReLu  12def relu(x):    r">
 <meta property="og:type" content="article">
-<meta property="og:title" content="d">
-<meta property="og:url" content="http://yoursite.com/2019/12/24/d/index.html">
+<meta property="og:title" content="Deep Learning from Scratch Chapter 3">
+<meta property="og:url" content="http://yoursite.com/2020/01/27/Deep-Learning-from-Scratch-Chapter-3/index.html">
 <meta property="og:site_name" content="Tech Dustdojo">
+<meta property="og:description" content="Neural network The essence of neural network is to find the weighting and bias of perceptrons  Activation function Sigmoid  12def sigmoid(x):    return 1 &#x2F; (1 + np.exp(-x))   ReLu  12def relu(x):    r">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2019-12-24T04:58:49.000Z">
-<meta property="article:modified_time" content="2019-12-24T16:32:49.000Z">
+<meta property="og:image" content="http://yoursite.com/images/Matrix-calculation-in-neural-network.png">
+<meta property="article:published_time" content="2020-01-27T06:53:54.000Z">
+<meta property="article:modified_time" content="2020-01-27T12:40:55.976Z">
 <meta property="article:author" content="Tech Dustdojo">
+<meta property="article:tag" content="deep learning">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/images/Matrix-calculation-in-neural-network.png">
 
 
 
@@ -117,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/12/24/d/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/01/27/Deep-Learning-from-Scratch-Chapter-3/"/>
 
 
 
 
 
-  <title>d | Tech Dustdojo</title>
+  <title>Deep Learning from Scratch Chapter 3 | Tech Dustdojo</title>
   
 
 
@@ -272,7 +277,7 @@ function category_js () {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/24/d/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/27/Deep-Learning-from-Scratch-Chapter-3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Tech Dustdojo">
@@ -289,7 +294,7 @@ function category_js () {
 
         
         
-          <h1 class="post-title" itemprop="name headline">d</h1>
+          <h1 class="post-title" itemprop="name headline">Deep Learning from Scratch Chapter 3</h1>
         
 
         <div class="post-meta">
@@ -301,8 +306,8 @@ function category_js () {
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-24T12:58:49+08:00">
-                2019-12-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-27T14:53:54+08:00">
+                2020-01-27
               </time>
             
 
@@ -324,8 +329,19 @@ function category_js () {
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaSE/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaSE</span>
+                  <a href="/categories/Book/" itemprop="url" rel="index">
+                    <span itemprop="name">Book</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Book/Deep-Learning-from-Scratch/" itemprop="url" rel="index">
+                    <span itemprop="name">Deep Learning from Scratch</span>
                   </a>
                 </span>
 
@@ -361,7 +377,26 @@ function category_js () {
       
 
       
-        
+        <h2 id="Neural-network"><a href="#Neural-network" class="headerlink" title="Neural network"></a>Neural network</h2><ul>
+<li>The essence of neural network is to find the weighting and bias of perceptrons</li>
+</ul>
+<h3 id="Activation-function"><a href="#Activation-function" class="headerlink" title="Activation function"></a>Activation function</h3><ul>
+<li>Sigmoid</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sigmoid</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span> / (<span class="number">1</span> + np.exp(-x))</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>ReLu</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">relu</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> np.maximum(<span class="number">0</span>, x)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Matrix-calculation-in-neural-network"><a href="#Matrix-calculation-in-neural-network" class="headerlink" title="Matrix calculation in neural network"></a>Matrix calculation in neural network</h3><img src="/images/Matrix-calculation-in-neural-network.png" class="" width="600" height="600" title="Matrix calculation in neural network">
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Y = np.dot(X, W) + B</span><br><span class="line">Z = sigmoid(Y)</span><br></pre></td></tr></table></figure>
+
+<h3 id="python-implenmentation-of-3-layer-neural-network"><a href="#python-implenmentation-of-3-layer-neural-network" class="headerlink" title="python implenmentation of 3 layer neural network"></a>python implenmentation of 3 layer neural network</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">init_network</span><span class="params">()</span>:</span></span><br><span class="line">    network = &#123;&#125;</span><br><span class="line">    network[<span class="string">'W1'</span>] = network[<span class="string">'b1'</span>] = network[<span class="string">'W2'</span>] = network[<span class="string">'b2'</span>] = network[<span class="string">'W3'</span>] =</span><br><span class="line">    np.array([[<span class="number">0.1</span>, <span class="number">0.3</span>, <span class="number">0.5</span>], [<span class="number">0.2</span>, <span class="number">0.4</span>, <span class="number">0.6</span>]]) np.array([<span class="number">0.1</span>, <span class="number">0.2</span>, <span class="number">0.3</span>])</span><br><span class="line">    np.array([[<span class="number">0.1</span>, <span class="number">0.4</span>], [<span class="number">0.2</span>, <span class="number">0.5</span>], [<span class="number">0.3</span>, <span class="number">0.6</span>]]) np.array([<span class="number">0.1</span>, <span class="number">0.2</span>])</span><br><span class="line">    np.array([[<span class="number">0.1</span>, <span class="number">0.3</span>], [<span class="number">0.2</span>, <span class="number">0.4</span>]])</span><br><span class="line">    network[<span class="string">'b3'</span>] = np.array([<span class="number">0.1</span>, <span class="number">0.2</span>])</span><br><span class="line">    <span class="keyword">return</span> network</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(network, x)</span>:</span></span><br><span class="line">    W1, W2, W3 = network[<span class="string">'W1'</span>], network[<span class="string">'W2'</span>], network[<span class="string">'W3'</span>] </span><br><span class="line">    b1, b2, b3 = network[<span class="string">'b1'</span>], network[<span class="string">'b2'</span>], network[<span class="string">'b3'</span>]</span><br><span class="line">    a1 = np.dot(x, W1) + b1 </span><br><span class="line">    z1 = sigmoid(a1)</span><br><span class="line">    a2 = np.dot(z1, W2) + b2 </span><br><span class="line">    z2 = sigmoid(a2)</span><br><span class="line">    a3 = np.dot(z2, W3) + b3 </span><br><span class="line">    y = a3</span><br><span class="line">    <span class="keyword">return</span> y</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">network = init_network()</span><br><span class="line">x = np.array([<span class="number">1.0</span>, <span class="number">0.5</span>])</span><br><span class="line">y = forward(network, x)</span><br><span class="line">print(y)</span><br><span class="line"> <span class="comment"># [ 0.31682708 0.69627909]</span></span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -376,6 +411,12 @@ function category_js () {
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/deep-learning/" rel="tag"># deep learning</a>
+          
+        </div>
+      
 
       
       
@@ -385,8 +426,8 @@ function category_js () {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/24/Set-up-Hexo/" rel="next" title="Set up Hexo">
-                <i class="fa fa-chevron-left"></i> Set up Hexo
+              <a href="/2020/01/27/Deep-Learning-from-Scratch-Chapter-2/" rel="next" title="Deep Learning from Scratch Chapter 2">
+                <i class="fa fa-chevron-left"></i> Deep Learning from Scratch Chapter 2
               </a>
             
           </div>
@@ -394,10 +435,6 @@ function category_js () {
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/12/24/IntelliJ-Shortcuts/" rel="prev" title="IntelliJ Shortcuts">
-                IntelliJ Shortcuts <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -449,8 +486,17 @@ function category_js () {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -510,6 +556,22 @@ function category_js () {
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Neural-network"><span class="nav-number">1.</span> <span class="nav-text">Neural network</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Activation-function"><span class="nav-number">1.1.</span> <span class="nav-text">Activation function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Matrix-calculation-in-neural-network"><span class="nav-number">1.2.</span> <span class="nav-text">Matrix calculation in neural network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python-implenmentation-of-3-layer-neural-network"><span class="nav-number">1.3.</span> <span class="nav-text">python implenmentation of 3 layer neural network</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
