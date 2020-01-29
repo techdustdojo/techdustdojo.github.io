@@ -290,8 +290,7 @@ function category_js () {
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/01/29/Deep-Learning-from-Scratch-Chapter-3-II-MNIST/" itemprop="url">Deep Learning from Scratch Chapter 3 II(MNIST)
-</a></h1>
+                <a class="post-title-link" href="/2020/01/29/Deep-Learning-from-Scratch-Chapter-3-II-MNIST/" itemprop="url">Deep Learning from Scratch Chapter 3 II(MNIST)</a></h1>
         
 
         <div class="post-meta">
@@ -313,6 +312,39 @@ function category_js () {
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Book/" itemprop="url" rel="index">
+                    <span itemprop="name">Book</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Book/Deep-Learning-from-Scratch/" itemprop="url" rel="index">
+                    <span itemprop="name">Deep Learning from Scratch</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -870,10 +902,11 @@ function category_js () {
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>x</span><br><span class="line">array([<span class="number">-1.</span>, <span class="number">1.</span>, <span class="number">2.</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y = x &gt; <span class="number">0</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y</span><br><span class="line">array([<span class="literal">False</span>, <span class="literal">True</span>, <span class="literal">True</span>], dtype=bool)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y = y.astype(np.int) </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y</span><br><span class="line">array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>])</span><br></pre></td></tr></table></figure></li>
 <li><p>np.ndim and shape</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>B = np.array([[<span class="number">1</span>,<span class="number">2</span>], [<span class="number">3</span>,<span class="number">4</span>], [<span class="number">5</span>,<span class="number">6</span>]]) </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(B)</span><br><span class="line">[[<span class="number">1</span> <span class="number">2</span>]</span><br><span class="line">[<span class="number">3</span> <span class="number">4</span>]</span><br><span class="line">[<span class="number">5</span> <span class="number">6</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.ndim(B) </span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>B.shape <span class="comment">#（row，column）</span></span><br><span class="line">(<span class="number">3</span>, <span class="number">2</span>)</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">- np.dot()</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>A = np.array([[<span class="number">1</span>,<span class="number">2</span>], [<span class="number">3</span>,<span class="number">4</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>B = np.array([[<span class="number">5</span>,<span class="number">6</span>], [<span class="number">7</span>,<span class="number">8</span>]]) </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.dot(A, B)</span><br><span class="line">array([[<span class="number">19</span>, <span class="number">22</span>],</span><br><span class="line">[<span class="number">43</span>, <span class="number">50</span>]])</span><br></pre></td></tr></table></figure>
-
-
+</li>
+<li><p>np.argmax() (find the index of the maximum number)</p>
 </li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = np.array([[<span class="number">0.1</span>, <span class="number">0.8</span>, <span class="number">0.1</span>], [<span class="number">0.3</span>, <span class="number">0.1</span>, <span class="number">0.6</span>], [<span class="number">0.2</span>, <span class="number">0.5</span>, <span class="number">0.3</span>], [<span class="number">0.8</span>, <span class="number">0.1</span>, <span class="number">0.1</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y = np.argmax(x, axis=<span class="number">1</span>) <span class="comment"># by each row</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(y)</span><br><span class="line">[<span class="number">1</span> <span class="number">2</span> <span class="number">1</span> <span class="number">0</span>]</span><br></pre></td></tr></table></figure>
 <h2 id="Matplotlib"><a href="#Matplotlib" class="headerlink" title="Matplotlib"></a>Matplotlib</h2><h3 id="plot-graph"><a href="#plot-graph" class="headerlink" title="plot graph"></a>plot graph</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="comment"># 生成数据</span></span><br><span class="line">x = np.arange(<span class="number">0</span>, <span class="number">6</span>, <span class="number">0.1</span>) <span class="comment"># 以0.1为单位，生成0到6的数据 y1 = np.sin(x)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制图形</span></span><br><span class="line">plt.plot(x, y1, label=<span class="string">"sin"</span>)</span><br><span class="line">plt.plot(x, y2, linestyle = <span class="string">"--"</span>, label=<span class="string">"cos"</span>) <span class="comment"># 用虚线绘制 plt.xlabel("x") # x轴标签</span></span><br><span class="line">plt.ylabel(<span class="string">"y"</span>) <span class="comment"># y轴标签</span></span><br><span class="line">plt.title(<span class="string">'sin &amp; cos'</span>) <span class="comment"># 标题</span></span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 
 <h3 id="show-image"><a href="#show-image" class="headerlink" title="show image"></a>show image</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt </span><br><span class="line"><span class="keyword">from</span> matplotlib.image <span class="keyword">import</span> imread</span><br><span class="line">             </span><br><span class="line">img = imread(<span class="string">'lena.png'</span>) <span class="comment"># 读入图像(设定合适的路径!) plt.imshow(img)</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
