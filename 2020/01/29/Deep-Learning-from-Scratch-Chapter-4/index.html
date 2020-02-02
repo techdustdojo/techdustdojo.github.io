@@ -88,8 +88,9 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/images/mean-squared-error.png">
 <meta property="og:image" content="http://yoursite.com/images/cross-entropy-error.png">
+<meta property="og:image" content="http://yoursite.com/images/mini-batch-cross-entropy-error.png">
 <meta property="article:published_time" content="2020-01-29T15:27:14.000Z">
-<meta property="article:modified_time" content="2020-01-29T15:59:05.226Z">
+<meta property="article:modified_time" content="2020-02-02T09:48:59.128Z">
 <meta property="article:author" content="Tech Dustdojo">
 <meta property="article:tag" content="deep learning">
 <meta name="twitter:card" content="summary">
@@ -384,7 +385,9 @@ function category_js () {
 <li>update the weighting</li>
 <li>repeat the process until the loss is acceptable</li>
 </ol>
-<h3 id="loss-function"><a href="#loss-function" class="headerlink" title="loss function"></a>loss function</h3><ul>
+<h2 id="loss-function"><a href="#loss-function" class="headerlink" title="loss function"></a>loss function</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># output of a training data</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y = [<span class="number">0.1</span>, <span class="number">0.05</span>, <span class="number">0.6</span>, <span class="number">0.0</span>, <span class="number">0.05</span>, <span class="number">0.1</span>, <span class="number">0.0</span>, <span class="number">0.1</span>, <span class="number">0.0</span>, <span class="number">0.0</span>]</span><br></pre></td></tr></table></figure>
+
+<ul>
 <li>mean squared error<img src="/images/mean-squared-error.png" class="" width="600" height="600" title="Mean squared error">
 
 </li>
@@ -396,12 +399,33 @@ function category_js () {
 <li><p>cross entropy error</p>
 <img src="/images/cross-entropy-error.png" class="" width="600" height="600" title="Cross entropy error">
 </li>
-<li><p>faster than the mean squared error since in one hot representation the t vector has only one non zero value</p>
+<li><p>faster than the mean squared error since in one hot representation </p>
+</li>
+<li><p>since the t vector has only one non zero value</p>
 </li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cross_entropy_error</span><span class="params">(y, t)</span>:</span> </span><br><span class="line">    delta = <span class="number">1e-7</span></span><br><span class="line">    <span class="keyword">return</span> -np.sum(t * np.log(y + delta)) <span class="comment">#add a very small to prevent when log(0) -&gt; -infinity</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cross_entropy_error</span><span class="params">(y, t)</span>:</span> </span><br><span class="line">    delta = <span class="number">1e-7</span></span><br><span class="line">    <span class="keyword">return</span> -np.sum(t * np.log(y + delta)) <span class="comment">#add a very small value to prevent occurrence of log(0) -&gt; -infinity</span></span><br></pre></td></tr></table></figure>
 
 
+
+<h2 id="mini-batch-training-base-on-cross-entropy-error"><a href="#mini-batch-training-base-on-cross-entropy-error" class="headerlink" title="mini batch training base on cross entropy error"></a>mini batch training base on cross entropy error</h2><img src="/images/mini-batch-cross-entropy-error.png" class="" width="600" height="600" title="Mini batch Cross entropy error">
+<ul>
+<li>the cross entropy error of a batch data is the mean error of each output</li>
+</ul>
+<h3 id="get-the-mini-batch-data"><a href="#get-the-mini-batch-data" class="headerlink" title="get the mini batch data"></a>get the mini batch data</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys, os sys.path.append(os.pardir)</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> dataset.mnist <span class="keyword">import</span> load_mnist</span><br><span class="line">(x_train, t_train), (x_test, t_test) = load_mnist(normalize=<span class="literal">True</span>, one_hot_label=<span class="literal">True</span>)</span><br><span class="line">print(x_train.shape) <span class="comment"># (60000, 784) print(t_train.shape) # (60000, 10)</span></span><br><span class="line"></span><br><span class="line">train_size = x_train.shape[<span class="number">0</span>]</span><br><span class="line">batch_size = <span class="number">10</span></span><br><span class="line">batch_mask = np.random.choice(train_size, batch_size) </span><br><span class="line">x_batch = x_train[batch_mask]</span><br><span class="line">t_batch = t_train[batch_mask]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<ul>
+<li>mini-batch version of cross entropy error base on one hot labelling</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cross_entropy_error</span><span class="params">(y, t)</span>:</span> </span><br><span class="line">    <span class="keyword">if</span> y.ndim == <span class="number">1</span>: <span class="comment">#handle the single input</span></span><br><span class="line">        t = t.reshape(<span class="number">1</span>, t.size) </span><br><span class="line">        y = y.reshape(<span class="number">1</span>, y.size)</span><br><span class="line"></span><br><span class="line">    batch_size = y.shape[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">return</span> -np.sum(t * np.log(y + <span class="number">1e-7</span>)) / batch_size</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>mini-batch version of cross entropy error base on non one hot labelling</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cross_entropy_error</span><span class="params">(y, t)</span>:</span> </span><br><span class="line">    <span class="keyword">if</span> y.ndim == <span class="number">1</span>: <span class="comment">##handle the single input</span></span><br><span class="line">        t = t.reshape(<span class="number">1</span>, t.size) </span><br><span class="line">        y = y.reshape(<span class="number">1</span>, y.size)</span><br><span class="line"></span><br><span class="line">    batch_size = y.shape[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">return</span> -np.sum(np.log(y[np.arange(batch_size), t] + <span class="number">1e-7</span>)) / batch_size</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -571,7 +595,7 @@ function category_js () {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Train-the-neural-network"><span class="nav-number">1.</span> <span class="nav-text">Train the neural network</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-to-train-the-neural-network"><span class="nav-number">1.1.</span> <span class="nav-text">Step to train the neural network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#loss-function"><span class="nav-number">1.2.</span> <span class="nav-text">loss function</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Train-the-neural-network"><span class="nav-number">1.</span> <span class="nav-text">Train the neural network</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-to-train-the-neural-network"><span class="nav-number">1.1.</span> <span class="nav-text">Step to train the neural network</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#loss-function"><span class="nav-number">2.</span> <span class="nav-text">loss function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mini-batch-training-base-on-cross-entropy-error"><span class="nav-number">3.</span> <span class="nav-text">mini batch training base on cross entropy error</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#get-the-mini-batch-data"><span class="nav-number">3.1.</span> <span class="nav-text">get the mini batch data</span></a></li></ol></li></ol></div>
             
 
           </div>
