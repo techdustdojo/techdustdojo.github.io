@@ -271,6 +271,175 @@ function category_js () {
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/02/Deep-Learning-from-Scratch-Chapter-4-II/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tech Dustdojo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tech Dustdojo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/02/Deep-Learning-from-Scratch-Chapter-4-II/" itemprop="url">Deep Learning from Scratch Chapter 4 II</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-02T20:55:06+08:00">
+                2020-02-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Book/" itemprop="url" rel="index">
+                    <span itemprop="name">Book</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Book/Deep-Learning-from-Scratch/" itemprop="url" rel="index">
+                    <span itemprop="name">Deep Learning from Scratch</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Numerical-differentiation"><a href="#Numerical-differentiation" class="headerlink" title="Numerical differentiation"></a>Numerical differentiation</h2><img src="/images/mean-squared-error.png" class="" width="600" height="600" title="Numerical differentiation">
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding: utf-8</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pylab <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">numerical_diff</span><span class="params">(f, x)</span>:</span></span><br><span class="line">    h = <span class="number">1e-4</span> <span class="comment"># 0.0001</span></span><br><span class="line">    <span class="keyword">return</span> (f(x+h) - f(x-h)) / (<span class="number">2</span>*h)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">function_1</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0.01</span>*x**<span class="number">2</span> + <span class="number">0.1</span>*x </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">tangent_line</span><span class="params">(f, x)</span>:</span></span><br><span class="line">    d = numerical_diff(f, x)</span><br><span class="line">    print(d)</span><br><span class="line">    y = f(x) - d*x</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">lambda</span> t: d*t + y</span><br><span class="line">     </span><br><span class="line">x = np.arange(<span class="number">0.0</span>, <span class="number">20.0</span>, <span class="number">0.1</span>)       <span class="comment">#plot the function</span></span><br><span class="line">y = function_1(x)</span><br><span class="line">plt.xlabel(<span class="string">"x"</span>)</span><br><span class="line">plt.ylabel(<span class="string">"f(x)"</span>)</span><br><span class="line"></span><br><span class="line">tf = tangent_line(function_1, <span class="number">5</span>)    <span class="comment">#plot the slope</span></span><br><span class="line">y2 = tf(x)</span><br><span class="line"></span><br><span class="line">plt.plot(x, y)</span><br><span class="line">plt.plot(x, y2)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<h2 id="Numerical-Gradient"><a href="#Numerical-Gradient" class="headerlink" title="Numerical Gradient"></a>Numerical Gradient</h2><ul>
+<li>for function f in point x<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding: utf-8</span></span><br><span class="line"><span class="comment"># cf.http://d.hatena.ne.jp/white_wheels/20100327/p3</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pylab <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> mpl_toolkits.mplot3d <span class="keyword">import</span> Axes3D</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_numerical_gradient_no_batch</span><span class="params">(f, x)</span>:</span></span><br><span class="line">    h = <span class="number">1e-4</span> <span class="comment"># 0.0001</span></span><br><span class="line">    grad = np.zeros_like(x)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> idx <span class="keyword">in</span> range(x.size):</span><br><span class="line">        tmp_val = x[idx]</span><br><span class="line">        x[idx] = float(tmp_val) + h</span><br><span class="line">        fxh1 = f(x) <span class="comment"># f(x+h)</span></span><br><span class="line">        </span><br><span class="line">        x[idx] = tmp_val - h </span><br><span class="line">        fxh2 = f(x) <span class="comment"># f(x-h)</span></span><br><span class="line">        grad[idx] = (fxh1 - fxh2) / (<span class="number">2</span>*h)</span><br><span class="line">        </span><br><span class="line">        x[idx] = tmp_val <span class="comment"># 还原值</span></span><br><span class="line">        </span><br><span class="line">    <span class="keyword">return</span> grad</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">numerical_gradient</span><span class="params">(f, X)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> X.ndim == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> _numerical_gradient_no_batch(f, X)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        grad = np.zeros_like(X)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> idx, x <span class="keyword">in</span> enumerate(X):</span><br><span class="line">            grad[idx] = _numerical_gradient_no_batch(f, x)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> grad</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h2 id="Gradient-descent-method"><a href="#Gradient-descent-method" class="headerlink" title="Gradient descent method"></a>Gradient descent method</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gradient_descent</span><span class="params">(f, init_x, lr=<span class="number">0.01</span>, step_num=<span class="number">100</span>)</span>:</span></span><br><span class="line">    x = init_x</span><br><span class="line">    x_history = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(step_num):</span><br><span class="line">        x_history.append( x.copy() )</span><br><span class="line"></span><br><span class="line">        grad = numerical_gradient(f, x)</span><br><span class="line">        x -= lr * grad</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> x, np.array(x_history)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>learning rate cannot be too large or too small</li>
+<li>it is usually set by try and error</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/29/Deep-Learning-from-Scratch-Chapter-4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -409,10 +578,13 @@ function category_js () {
 <li>the cross entropy error of a batch data is the mean error of each output</li>
 </ul>
 <h3 id="get-the-mini-batch-data"><a href="#get-the-mini-batch-data" class="headerlink" title="get the mini batch data"></a>get the mini batch data</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys, os sys.path.append(os.pardir)</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> dataset.mnist <span class="keyword">import</span> load_mnist</span><br><span class="line">(x_train, t_train), (x_test, t_test) = load_mnist(normalize=<span class="literal">True</span>, one_hot_label=<span class="literal">True</span>)</span><br><span class="line">print(x_train.shape) <span class="comment"># (60000, 784) print(t_train.shape) # (60000, 10)</span></span><br><span class="line"></span><br><span class="line">train_size = x_train.shape[<span class="number">0</span>]</span><br><span class="line">batch_size = <span class="number">10</span></span><br><span class="line">batch_mask = np.random.choice(train_size, batch_size) </span><br><span class="line">x_batch = x_train[batch_mask]</span><br><span class="line">t_batch = t_train[batch_mask]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>np.random.choice()<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.random.choice(<span class="number">60000</span>, <span class="number">10</span>)</span><br><span class="line">array([ <span class="number">8013</span>, <span class="number">14666</span>, <span class="number">58210</span>, <span class="number">23832</span>, <span class="number">52091</span>, <span class="number">10153</span>, <span class="number">8107</span>, <span class="number">19410</span>, <span class="number">27260</span>, <span class="number">21411</span>])</span><br></pre></td></tr></table></figure>
 
 
 
-
+</li>
+</ul>
 <ul>
 <li>mini-batch version of cross entropy error base on one hot labelling</li>
 </ul>
@@ -422,6 +594,10 @@ function category_js () {
 <li>mini-batch version of cross entropy error base on non one hot labelling</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cross_entropy_error</span><span class="params">(y, t)</span>:</span> </span><br><span class="line">    <span class="keyword">if</span> y.ndim == <span class="number">1</span>: <span class="comment">##handle the single input</span></span><br><span class="line">        t = t.reshape(<span class="number">1</span>, t.size) </span><br><span class="line">        y = y.reshape(<span class="number">1</span>, y.size)</span><br><span class="line"></span><br><span class="line">    batch_size = y.shape[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">return</span> -np.sum(np.log(y[np.arange(batch_size), t] + <span class="number">1e-7</span>)) / batch_size</span><br></pre></td></tr></table></figure>
+<ul>
+<li>np.arange()<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.arange(<span class="number">5</span>)</span><br><span class="line">array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># t [2, 7, 0, 9, 4]</span></span><br><span class="line">y[np.arange(<span class="number">5</span>),t]</span><br><span class="line">array([y[<span class="number">0</span>,<span class="number">2</span>], y[<span class="number">1</span>,<span class="number">7</span>], y[<span class="number">2</span>,<span class="number">0</span>], y[<span class="number">3</span>,<span class="number">9</span>], y[<span class="number">4</span>,<span class="number">4</span>]])</span><br></pre></td></tr></table></figure></li>
+</ul>
+
           
         
       
@@ -1987,198 +2163,6 @@ function category_js () {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/30/Head-First-Java-Chapter-11-Exception/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Tech Dustdojo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Tech Dustdojo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/12/30/Head-First-Java-Chapter-11-Exception/" itemprop="url">Head First Java Chapter 11 Exception</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-30T23:15:17+08:00">
-                2019-12-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Book/" itemprop="url" rel="index">
-                    <span itemprop="name">Book</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Book/Head-First-Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Head First Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Basic-concept"><a href="#Basic-concept" class="headerlink" title="Basic concept"></a>Basic concept</h2><ul>
-<li><p>Exception is a class</p>
-</li>
-<li><p>all exception are extend from Exception class</p>
-</li>
-<li><p>when a method declare to throws exception, we need to handle it</p>
-</li>
-<li><p>If two Exception are inherit frome the same super exception class and have the same handling method, we can catch their exception class in one catch block</p>
-</li>
-<li><p>When throwing an exception, the call of the method need to handle it, by throwing it again to the upper method(until the main) or catch it.</p>
-</li>
-<li><p>if the upper method also want to throws the exception, it should decalre the throw statement in its decoration</p>
-</li>
-<li><p>Compiler will forece programmer to handle all kinds of exceptions except the RuntimeException</p>
-</li>
-<li><p>RuntimeException is usually cause by code logic which cannot predict or prevent</p>
-</li>
-</ul>
-<h2 id="Two-ways-to-handle-exception"><a href="#Two-ways-to-handle-exception" class="headerlink" title="Two ways to handle exception"></a>Two ways to handle exception</h2><h3 id="try-catch-finally-block"><a href="#try-catch-finally-block" class="headerlink" title="try catch finally block"></a>try catch finally block</h3><ul>
-<li>if return statement inside try or catch block, finally block will still be execte and then return</li>
-</ul>
-<h3 id="throws-exception"><a href="#throws-exception" class="headerlink" title="throws exception"></a>throws exception</h3><ul>
-<li>to throw an exception simply decalre it in method decoration<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">pubilc <span class="keyword">void</span> <span class="title">openFile</span><span class="params">()</span> <span class="keyword">throws</span> fileNotExitException, fileInUseException</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<h2 id="Catching-exception"><a href="#Catching-exception" class="headerlink" title="Catching exception"></a>Catching exception</h2><img src="/images/inheritance-tree-of-exception-class.png" class="" width="600" height="600" title="Inheritance tree of exception class">
-<h3 id="Catching-mutilple-exception"><a href="#Catching-mutilple-exception" class="headerlink" title="Catching mutilple exception"></a>Catching mutilple exception</h3><ul>
-<li>we should catch the child exception first</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> IOException(<span class="string">"IO Exception"</span>);</span><br><span class="line"></span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException ioe) &#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line"></span><br><span class="line">&#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts"></a>Concepts</h2><ol>
-<li>catch and finally cannot be use without try</li>
-<li>no code between try and catch</li>
-<li>try must follow catch or finally</li>
-</ol>
-<ul>
-<li><em>4. try finally block must throw exception</em></li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2229,7 +2213,7 @@ function category_js () {
               
                 <a href="/archives%7C%7C%20archive">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
