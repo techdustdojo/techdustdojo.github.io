@@ -271,6 +271,130 @@ function category_js () {
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/03/Deep-Learning-from-Scratch-Chapter-5-II/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tech Dustdojo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tech Dustdojo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/03/Deep-Learning-from-Scratch-Chapter-5-II/" itemprop="url">Deep Learning from Scratch Chapter 5 II</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-03T15:57:58+08:00">
+                2020-02-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+<img src="/images/mean-squared-error.png" class="" width="600" height="600" title="Numerical differentiation">
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/03/Deep-Learning-from-Scratch-Chapter-5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -375,14 +499,7 @@ function category_js () {
       
         
           
-            <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-<h2 id="Backpropagation"><a href="#Backpropagation" class="headerlink" title="Backpropagation"></a>Backpropagation</h2><h2 id="computational-graph"><a href="#computational-graph" class="headerlink" title="computational graph"></a>computational graph</h2><img src="/images/mcomputational-graph.png" class="" width="600" height="600" title="Example of a Computational graph">
+            <h2 id="Backpropagation"><a href="#Backpropagation" class="headerlink" title="Backpropagation"></a>Backpropagation</h2><h2 id="computational-graph"><a href="#computational-graph" class="headerlink" title="computational graph"></a>computational graph</h2><img src="/images/mcomputational-graph.png" class="" width="600" height="600" title="Example of a Computational graph">
 
 
 <h3 id="Backpropagation-of-addition-layer"><a href="#Backpropagation-of-addition-layer" class="headerlink" title="Backpropagation of addition layer"></a>Backpropagation of addition layer</h3><img src="/images/Backpropagation-of-addition-layer.png" class="" width="600" height="600" title="Backpropagation of addition layer">
@@ -394,7 +511,13 @@ function category_js () {
 <h3 id="Example-of-backpropagation"><a href="#Example-of-backpropagation" class="headerlink" title="Example of backpropagation"></a>Example of backpropagation</h3><img src="/images/Example-of-backpropagation.png" class="" width="600" height="600" title="Example of backpropagation">
 
 
-<h2 id="implement-of-multiplication-layer"><a href="#implement-of-multiplication-layer" class="headerlink" title="implement of multiplication layer"></a>implement of multiplication layer</h2>
+<h2 id="implementation-of-the-multiplication-layer-and-addition-layer"><a href="#implementation-of-the-multiplication-layer-and-addition-layer" class="headerlink" title="implementation of the multiplication layer and addition layer"></a>implementation of the multiplication layer and addition layer</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># coding: utf-8</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MulLayer</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.x = <span class="literal">None</span></span><br><span class="line">        self.y = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x, y)</span>:</span></span><br><span class="line">        self.x = x</span><br><span class="line">        self.y = y                </span><br><span class="line">        out = x * y</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> out</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">backward</span><span class="params">(self, dout)</span>:</span></span><br><span class="line">        dx = dout * self.y</span><br><span class="line">        dy = dout * self.x</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> dx, dy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AddLayer</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x, y)</span>:</span></span><br><span class="line">        out = x + y</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> out</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">backward</span><span class="params">(self, dout)</span>:</span></span><br><span class="line">        dx = dout * <span class="number">1</span></span><br><span class="line">        dy = dout * <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> dx, dy</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>implementation of the Example of backpropagation</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># coding: utf-8</span></span><br><span class="line"><span class="keyword">from</span> layer_naive <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">apple = <span class="number">100</span></span><br><span class="line">apple_num = <span class="number">2</span></span><br><span class="line">orange = <span class="number">150</span></span><br><span class="line">orange_num = <span class="number">3</span></span><br><span class="line">tax = <span class="number">1.1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># layer</span></span><br><span class="line">mul_apple_layer = MulLayer()</span><br><span class="line">mul_orange_layer = MulLayer()</span><br><span class="line">add_apple_orange_layer = AddLayer()</span><br><span class="line">mul_tax_layer = MulLayer()</span><br><span class="line"></span><br><span class="line"><span class="comment"># forward</span></span><br><span class="line">apple_price = mul_apple_layer.forward(apple, apple_num)  <span class="comment"># (1)</span></span><br><span class="line">orange_price = mul_orange_layer.forward(orange, orange_num)  <span class="comment"># (2)</span></span><br><span class="line">all_price = add_apple_orange_layer.forward(apple_price, orange_price)  <span class="comment"># (3)</span></span><br><span class="line">price = mul_tax_layer.forward(all_price, tax)  <span class="comment"># (4)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># backward</span></span><br><span class="line">dprice = <span class="number">1</span></span><br><span class="line">dall_price, dtax = mul_tax_layer.backward(dprice)  <span class="comment"># (4)</span></span><br><span class="line">dapple_price, dorange_price = add_apple_orange_layer.backward(dall_price)  <span class="comment"># (3)</span></span><br><span class="line">dorange, dorange_num = mul_orange_layer.backward(dorange_price)  <span class="comment"># (2)</span></span><br><span class="line">dapple, dapple_num = mul_apple_layer.backward(dapple_price)  <span class="comment"># (1)</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"price:"</span>, int(price))</span><br><span class="line">print(<span class="string">"dApple:"</span>, dapple)</span><br><span class="line">print(<span class="string">"dApple_num:"</span>, int(dapple_num))</span><br><span class="line">print(<span class="string">"dOrange:"</span>, dorange)</span><br><span class="line">print(<span class="string">"dOrange_num:"</span>, int(dorange_num))</span><br><span class="line">print(<span class="string">"dTax:"</span>, dtax)</span><br></pre></td></tr></table></figure>
+
           
         
       
@@ -1946,200 +2069,6 @@ function category_js () {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/03/Head-First-Java-Chapter-14-Serialization-and-File-I-O/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Tech Dustdojo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Tech Dustdojo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/01/03/Head-First-Java-Chapter-14-Serialization-and-File-I-O/" itemprop="url">Head First Java Chapter 14 Serialization and File I/O</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-03T14:28:56+08:00">
-                2020-01-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Book/" itemprop="url" rel="index">
-                    <span itemprop="name">Book</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Book/Head-First-Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Head First Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Two-mainstream-to-save-file"><a href="#Two-mainstream-to-save-file" class="headerlink" title="Two mainstream to save file"></a>Two mainstream to save file</h2><h3 id="serialization-save-the-serialized-obj"><a href="#serialization-save-the-serialized-obj" class="headerlink" title="serialization (save the serialized obj)"></a>serialization (save the serialized obj)</h3><h3 id="save-text-file-save-the-obj-as-human-readable-string"><a href="#save-text-file-save-the-obj-as-human-readable-string" class="headerlink" title="save text file (save the obj as human readable string)"></a>save text file (save the obj as human readable string)</h3><h2 id="Serialization"><a href="#Serialization" class="headerlink" title="Serialization"></a>Serialization</h2><img src="/images/serialization.png" class="" width="600" height="600" title="Serialization">
-
-<ol>
-<li>create a FileOutputStream obj</li>
-<li>create a ObjOutputStream obj</li>
-<li>write obj using ObjOutputStream obj.writeObject()</li>
-<li>ObjOutputStream obj.close()</li>
-</ol>
-<h3 id="important-concept"><a href="#important-concept" class="headerlink" title="important concept"></a>important concept</h3><img src="/images/serialization-process.png" class="" width="600" height="600" title="Serialization Process">
-<ul>
-<li>when serializing an obj, all the obj it refers to from instance variable are also serialized.</li>
-<li>serializable interface is a marker/tag interface, there are no any method need to be implenmented</li>
-<li>the interface is just used to tell the jvm the class is serializable</li>
-<li>serialization is a all or nothing process</li>
-<li>if any obj inside the serlizable class cannot be serialize, then the obj is not serializable</li>
-<li>non serializable obj can use the key word transient to tell the jvm not serialize this obj<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">transient</span> String currentID;</span><br></pre></td></tr></table></figure></li>
-<li>jvm will initial a new obj by the constructor for the transient obj</li>
-</ul>
-<h2 id="Deserialization"><a href="#Deserialization" class="headerlink" title="Deserialization"></a>Deserialization</h2><ol>
-<li>create a FileInputStream obj</li>
-<li>create a ObjInputStream obj</li>
-<li>write obj using ObjOutputStream obj.readObject()</li>
-<li>casting the obj to the right obj type</li>
-<li>ObjOutputStream obj.close()</li>
-</ol>
-<h3 id="Example-with-file-chooser"><a href="#Example-with-file-chooser" class="headerlink" title="Example with file chooser"></a>Example with file chooser</h3><h4 id="Save-file"><a href="#Save-file" class="headerlink" title="Save file"></a>Save file</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SaveFileListener</span> <span class="keyword">implements</span> <span class="title">ActionListener</span></span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent actionEvent)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">boolean</span> [] checkboxState = <span class="keyword">new</span> <span class="keyword">boolean</span>[<span class="number">256</span>];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">256</span>; i++)&#123;</span><br><span class="line">                JCheckBox check = checkboxList.get(i);</span><br><span class="line">                <span class="keyword">if</span>(check.isSelected())&#123;</span><br><span class="line">                    checkboxState[i] = <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            JFileChooser fileChooser = <span class="keyword">new</span> JFileChooser();</span><br><span class="line">            fileChooser.showSaveDialog(frame);</span><br><span class="line">            save(fileChooser.getSelectedFile(),checkboxState);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">(File file, <span class="keyword">boolean</span>[] checkboxState)</span></span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            FileOutputStream fileOutputStream = <span class="keyword">new</span> FileOutputStream(file);</span><br><span class="line">            ObjectOutputStream os = <span class="keyword">new</span> ObjectOutputStream(fileOutputStream);</span><br><span class="line">            os.writeObject(checkboxState);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception ex)&#123;</span><br><span class="line">            ex.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h4 id="Read-file"><a href="#Read-file" class="headerlink" title="Read file"></a>Read file</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReadFileListener</span> <span class="keyword">implements</span> <span class="title">ActionListener</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent actionEvent)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">            JFileChooser fileChooser = <span class="keyword">new</span> JFileChooser();</span><br><span class="line">            fileChooser.showOpenDialog(frame);</span><br><span class="line">            read(fileChooser.getSelectedFile());</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            sequencer.stop();</span><br><span class="line">            buildTrackAndStart();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(File file)</span> </span>&#123;</span><br><span class="line">ß</span><br><span class="line">        <span class="keyword">boolean</span>[] checkboxState = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            FileInputStream filesInStream = <span class="keyword">new</span> FileInputStream(file);</span><br><span class="line">            ObjectInputStream is = <span class="keyword">new</span> ObjectInputStream(filesInStream);</span><br><span class="line">            checkboxState = (<span class="keyword">boolean</span>[])is.readObject();</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception ex)&#123;</span><br><span class="line">            ex.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">256</span>; i++)&#123;</span><br><span class="line">            JCheckBox check = checkboxList.get(i);</span><br><span class="line">            <span class="keyword">if</span>(checkboxState[i])&#123;</span><br><span class="line">                check.setSelected(<span class="keyword">true</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                check.setSelected(<span class="keyword">false</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Text-file"><a href="#Text-file" class="headerlink" title="Text file"></a>Text file</h2><h3 id="Save-text-file"><a href="#Save-text-file" class="headerlink" title="Save text file"></a>Save text file</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">saveFile</span><span class="params">(File selectedFile)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        BufferedWriter writer = <span class="keyword">new</span> BufferedWriter(<span class="keyword">new</span> FileWriter(selectedFile));</span><br><span class="line">        Iterator cardIterator = cardList.iterator();</span><br><span class="line">        <span class="keyword">while</span> (cardIterator.hasNext())&#123;</span><br><span class="line">            QuizCard card = (QuizCard) cardIterator.next();</span><br><span class="line">            writer.write(card.getQuestion() + <span class="string">"/"</span>);</span><br><span class="line">            writer.write(card.getAnswer() + <span class="string">"\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        writer.close();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">SaveItemListener</span> <span class="keyword">implements</span> <span class="title">ActionListener</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent actionEvent)</span> </span>&#123;</span><br><span class="line">        QuizCard card = <span class="keyword">new</span> QuizCard(question.getText(),answer.getText());</span><br><span class="line">        cardList.add(card);</span><br><span class="line">        JFileChooser fileSave = <span class="keyword">new</span> JFileChooser();</span><br><span class="line">        fileSave.showSaveDialog(frame);</span><br><span class="line">        saveFile(fileSave.getSelectedFile());</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Read-text-file"><a href="#Read-text-file" class="headerlink" title="Read text file"></a>Read text file</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OpenMenuListener</span> <span class="keyword">implements</span> <span class="title">ActionListener</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent ev)</span> </span>&#123;</span><br><span class="line">            JFileChooser fileOpen = <span class="keyword">new</span> JFileChooser();</span><br><span class="line">            fileOpen.showOpenDialog(frame);</span><br><span class="line">            loadFile(fileOpen.getSelectedFile());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">loadFile</span><span class="params">(File file)</span> </span>&#123;</span><br><span class="line">        cardList = <span class="keyword">new</span> ArrayList();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(file));</span><br><span class="line">            String line = <span class="keyword">null</span>;ß</span><br><span class="line">            <span class="keyword">while</span> ((line = reader.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">                makeCard(line);</span><br><span class="line">            &#125;</span><br><span class="line">            reader.close();</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span>(Exception ex) &#123;</span><br><span class="line">            System.out.println(<span class="string">"couldn't read the card file"</span>);</span><br><span class="line">            ex.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// now time to start</span></span><br><span class="line">        cardIterator = cardList.iterator();</span><br><span class="line">        showNextCard();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="Version-ID"><a href="#Version-ID" class="headerlink" title="Version ID"></a>Version ID</h2><ul>
-<li>when obj is serialized, it will be given a version id, which is calculate by the class</li>
-<li>when the obh is deserialized, if the do not match the current class version id, the deserialization will be fail</li>
-<li>to resolve this problem, simply put the obj version id inside the current class</li>
-</ul>
-<ol>
-<li>use serilaver to get the version id of that obj</li>
-<li>copy the id to the class eg:<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">125434613L</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-ß</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2190,7 +2119,7 @@ function category_js () {
               
                 <a href="/archives%7C%7C%20archive">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
