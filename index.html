@@ -271,6 +271,166 @@ function category_js () {
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/03/Deep-Learning-from-Scratch-Chapter-4-III/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tech Dustdojo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tech Dustdojo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/03/Deep-Learning-from-Scratch-Chapter-4-III/" itemprop="url">Deep Learning from Scratch Chapter 4 III</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-03T10:03:25+08:00">
+                2020-02-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Book/" itemprop="url" rel="index">
+                    <span itemprop="name">Book</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Book/Deep-Learning-from-Scratch/" itemprop="url" rel="index">
+                    <span itemprop="name">Deep Learning from Scratch</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="simple-2-layer-network-implementation"><a href="#simple-2-layer-network-implementation" class="headerlink" title="simple 2 layer network implementation"></a>simple 2 layer network implementation</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding: utf-8</span></span><br><span class="line"><span class="keyword">import</span> sys, os</span><br><span class="line">sys.path.append(os.pardir)  <span class="comment"># 为了导入父目录的文件而进行的设定</span></span><br><span class="line"><span class="keyword">from</span> common.functions <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> common.gradient <span class="keyword">import</span> numerical_gradient</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TwoLayerNet</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, input_size, hidden_size, output_size, weight_init_std=<span class="number">0.01</span>)</span>:</span></span><br><span class="line">        <span class="comment"># 初始化权重</span></span><br><span class="line">        self.params = &#123;&#125;</span><br><span class="line">        self.params[<span class="string">'W1'</span>] = weight_init_std * np.random.randn(input_size, hidden_size)</span><br><span class="line">        self.params[<span class="string">'b1'</span>] = np.zeros(hidden_size)</span><br><span class="line">        self.params[<span class="string">'W2'</span>] = weight_init_std * np.random.randn(hidden_size, output_size)</span><br><span class="line">        self.params[<span class="string">'b2'</span>] = np.zeros(output_size)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        W1, W2 = self.params[<span class="string">'W1'</span>], self.params[<span class="string">'W2'</span>]</span><br><span class="line">        b1, b2 = self.params[<span class="string">'b1'</span>], self.params[<span class="string">'b2'</span>]</span><br><span class="line">    </span><br><span class="line">        a1 = np.dot(x, W1) + b1</span><br><span class="line">        z1 = sigmoid(a1)</span><br><span class="line">        a2 = np.dot(z1, W2) + b2</span><br><span class="line">        y = softmax(a2)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> y</span><br><span class="line">        </span><br><span class="line">    <span class="comment"># x:输入数据, t:监督数据</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">loss</span><span class="params">(self, x, t)</span>:</span></span><br><span class="line">        y = self.predict(x)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> cross_entropy_error(y, t)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">accuracy</span><span class="params">(self, x, t)</span>:</span></span><br><span class="line">        y = self.predict(x)</span><br><span class="line">        y = np.argmax(y, axis=<span class="number">1</span>)</span><br><span class="line">        t = np.argmax(t, axis=<span class="number">1</span>)</span><br><span class="line">        </span><br><span class="line">        accuracy = np.sum(y == t) / float(x.shape[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">return</span> accuracy</span><br><span class="line">        </span><br><span class="line">    <span class="comment"># x:输入数据, t:监督数据</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">numerical_gradient</span><span class="params">(self, x, t)</span>:</span></span><br><span class="line">        loss_W = <span class="keyword">lambda</span> W: self.loss(x, t)</span><br><span class="line">        </span><br><span class="line">        grads = &#123;&#125;</span><br><span class="line">        grads[<span class="string">'W1'</span>] = numerical_gradient(loss_W, self.params[<span class="string">'W1'</span>])</span><br><span class="line">        grads[<span class="string">'b1'</span>] = numerical_gradient(loss_W, self.params[<span class="string">'b1'</span>])</span><br><span class="line">        grads[<span class="string">'W2'</span>] = numerical_gradient(loss_W, self.params[<span class="string">'W2'</span>])</span><br><span class="line">        grads[<span class="string">'b2'</span>] = numerical_gradient(loss_W, self.params[<span class="string">'b2'</span>])</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> grads</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">gradient</span><span class="params">(self, x, t)</span>:</span></span><br><span class="line">        W1, W2 = self.params[<span class="string">'W1'</span>], self.params[<span class="string">'W2'</span>]</span><br><span class="line">        b1, b2 = self.params[<span class="string">'b1'</span>], self.params[<span class="string">'b2'</span>]</span><br><span class="line">        grads = &#123;&#125;</span><br><span class="line">        </span><br><span class="line">        batch_num = x.shape[<span class="number">0</span>]</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># forward</span></span><br><span class="line">        a1 = np.dot(x, W1) + b1</span><br><span class="line">        z1 = sigmoid(a1)</span><br><span class="line">        a2 = np.dot(z1, W2) + b2</span><br><span class="line">        y = softmax(a2)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># backward</span></span><br><span class="line">        dy = (y - t) / batch_num</span><br><span class="line">        grads[<span class="string">'W2'</span>] = np.dot(z1.T, dy)</span><br><span class="line">        grads[<span class="string">'b2'</span>] = np.sum(dy, axis=<span class="number">0</span>)</span><br><span class="line">        </span><br><span class="line">        da1 = np.dot(dy, W2.T)</span><br><span class="line">        dz1 = sigmoid_grad(a1) * da1</span><br><span class="line">        grads[<span class="string">'W1'</span>] = np.dot(x.T, dz1)</span><br><span class="line">        grads[<span class="string">'b1'</span>] = np.sum(dz1, axis=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> grads</span><br></pre></td></tr></table></figure>
+
+
+
+
+<ul>
+<li>train<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># coding: utf-8</span></span><br><span class="line"><span class="keyword">import</span> sys, os</span><br><span class="line">sys.path.append(os.pardir)  <span class="comment"># 为了导入父目录的文件而进行的设定</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> dataset.mnist <span class="keyword">import</span> load_mnist</span><br><span class="line"><span class="keyword">from</span> two_layer_net <span class="keyword">import</span> TwoLayerNet</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读入数据</span></span><br><span class="line">(x_train, t_train), (x_test, t_test) = load_mnist(normalize=<span class="literal">True</span>, one_hot_label=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">network = TwoLayerNet(input_size=<span class="number">784</span>, hidden_size=<span class="number">50</span>, output_size=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">iters_num = <span class="number">10000</span>  <span class="comment"># 适当设定循环的次数</span></span><br><span class="line">train_size = x_train.shape[<span class="number">0</span>]</span><br><span class="line">batch_size = <span class="number">100</span>        <span class="comment">#feed 100 data to the network each time to update the weight</span></span><br><span class="line">learning_rate = <span class="number">0.1</span></span><br><span class="line"></span><br><span class="line">train_loss_list = []</span><br><span class="line">train_acc_list = []</span><br><span class="line">test_acc_list = []</span><br><span class="line"></span><br><span class="line">iter_per_epoch = max(train_size / batch_size, <span class="number">1</span>)        <span class="comment"># how many batch of data among all training data</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(iters_num):</span><br><span class="line">    batch_mask = np.random.choice(train_size, batch_size)</span><br><span class="line">    x_batch = x_train[batch_mask]</span><br><span class="line">    t_batch = t_train[batch_mask]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 计算梯度</span></span><br><span class="line">    <span class="comment">#grad = network.numerical_gradient(x_batch, t_batch)</span></span><br><span class="line">    grad = network.gradient(x_batch, t_batch)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 更新参数</span></span><br><span class="line">    <span class="keyword">for</span> key <span class="keyword">in</span> (<span class="string">'W1'</span>, <span class="string">'b1'</span>, <span class="string">'W2'</span>, <span class="string">'b2'</span>):</span><br><span class="line">        network.params[key] -= learning_rate * grad[key]</span><br><span class="line">    </span><br><span class="line">    loss = network.loss(x_batch, t_batch)</span><br><span class="line">    train_loss_list.append(loss)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> i % iter_per_epoch == <span class="number">0</span>:             <span class="comment">#cal the acc every time it has train for a epoch -&gt; all training data has been trained</span></span><br><span class="line">        train_acc = network.accuracy(x_train, t_train)</span><br><span class="line">        test_acc = network.accuracy(x_test, t_test)</span><br><span class="line">        train_acc_list.append(train_acc)</span><br><span class="line">        test_acc_list.append(test_acc)</span><br><span class="line">        print(<span class="string">"train acc, test acc | "</span> + str(train_acc) + <span class="string">", "</span> + str(test_acc))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制图形</span></span><br><span class="line">markers = &#123;<span class="string">'train'</span>: <span class="string">'o'</span>, <span class="string">'test'</span>: <span class="string">'s'</span>&#125;</span><br><span class="line">x = np.arange(len(train_acc_list))</span><br><span class="line">plt.plot(x, train_acc_list, label=<span class="string">'train acc'</span>)</span><br><span class="line">plt.plot(x, test_acc_list, label=<span class="string">'test acc'</span>, linestyle=<span class="string">'--'</span>)</span><br><span class="line">plt.xlabel(<span class="string">"epochs"</span>)</span><br><span class="line">plt.ylabel(<span class="string">"accuracy"</span>)</span><br><span class="line">plt.ylim(<span class="number">0</span>, <span class="number">1.0</span>)</span><br><span class="line">plt.legend(loc=<span class="string">'lower right'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/02/Deep-Learning-from-Scratch-Chapter-4-II/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1285,6 +1445,7 @@ function category_js () {
 
 <h3 id="show-image"><a href="#show-image" class="headerlink" title="show image"></a>show image</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt </span><br><span class="line"><span class="keyword">from</span> matplotlib.image <span class="keyword">import</span> imread</span><br><span class="line">             </span><br><span class="line">img = imread(<span class="string">'lena.png'</span>) <span class="comment"># 读入图像(设定合适的路径!) plt.imshow(img)</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 
+<h2 id="lambda"><a href="#lambda" class="headerlink" title="lambda"></a>lambda</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(W)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> net.loss(x, t)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># same as</span></span><br><span class="line"></span><br><span class="line">f = <span class="keyword">lambda</span> w: net.loss(x, t)</span><br></pre></td></tr></table></figure>
           
         
       
@@ -1962,207 +2123,6 @@ function category_js () {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/31/Head-First-Java-Chapter-12-GUI/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Tech Dustdojo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Tech Dustdojo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/12/31/Head-First-Java-Chapter-12-GUI/" itemprop="url">Head First Java Chapter 12 GUI</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-31T14:47:48+08:00">
-                2019-12-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Book/" itemprop="url" rel="index">
-                    <span itemprop="name">Book</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Book/Head-First-Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Head First Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Basic-Concept"><a href="#Basic-Concept" class="headerlink" title="Basic Concept"></a>Basic Concept</h2><ul>
-<li><p>JFrame is a class to represent the windows in screen</p>
-</li>
-<li><p>Widgets: JButton JRadioButton JCheckBox JLabel JList JSrcollPane…. are all widget classes can be place in JFrame</p>
-</li>
-</ul>
-<hr>
-<h2 id="Simple-operation-of-JFrame"><a href="#Simple-operation-of-JFrame" class="headerlink" title="Simple operation of JFrame"></a>Simple operation of JFrame</h2><h3 id="Close-a-JFrame-on-click"><a href="#Close-a-JFrame-on-click" class="headerlink" title="Close a JFrame on click"></a>Close a JFrame on click</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">JFrame frame = <span class="keyword">new</span> JFrame();</span><br><span class="line">frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br></pre></td></tr></table></figure>
-<h3 id="Addd-button-checkbox…"><a href="#Addd-button-checkbox…" class="headerlink" title="Addd button checkbox…."></a>Addd button checkbox….</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">JButton button = <span class="keyword">new</span> JButton(<span class="string">"Enter"</span>);</span><br><span class="line">frame.getContentPane().add(button);</span><br></pre></td></tr></table></figure>
-<h3 id="Set-size-and-visiable"><a href="#Set-size-and-visiable" class="headerlink" title="Set size and visiable"></a>Set size and visiable</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">frame.setSize(<span class="number">500</span>,<span class="number">500</span>);</span><br><span class="line">frame.setVisible(<span class="keyword">true</span>);</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="ActionListener-and-ActionPerformed"><a href="#ActionListener-and-ActionPerformed" class="headerlink" title="ActionListener and ActionPerformed"></a>ActionListener and ActionPerformed</h2><h3 id="Mechanism"><a href="#Mechanism" class="headerlink" title="Mechanism"></a>Mechanism</h3><ol>
-<li><p>When user click on button, the JButton obj will automatically create a Event obj</p>
-</li>
-<li><p>If any class want to notify by this Event obj, it should implenment the ActionListner interface and register the ActionListner in the widget</p>
-</li>
-<li><p>ActionListener interface force will you implement the actionPerformed() method in your class</p>
-</li>
-<li><p>When user click on button, the JButton obj will automatically create a Event obj and pass it to the class who is listening and call the actionPerformed() method automatically</p>
-</li>
-</ol>
-<h3 id="Implementation-Workflow"><a href="#Implementation-Workflow" class="headerlink" title="Implementation Workflow"></a>Implementation Workflow</h3><ol>
-<li>implenment the ActionListener interface</li>
-<li>implenment the actionPerformed() method</li>
-<li>register the actionListener in the widget</li>
-</ol>
-<h2 id="Inner-Class"><a href="#Inner-Class" class="headerlink" title="Inner Class"></a>Inner Class</h2><ul>
-<li><p>Inner class can use all method and attributes in outter class even if they are private</p>
-</li>
-<li><p>Inner class obj is binded with the outter class obj, the instance inner obj can only access the method and attributes of the outter instance class obj who is binding with it</p>
-</li>
-</ul>
-<h3 id="example-of-inner-class-to-implenment-the-listener-of-two-button"><a href="#example-of-inner-class-to-implenment-the-listener-of-two-button" class="headerlink" title="example of inner class to implenment the listener of two button"></a>example of inner class to implenment the listener of two button</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUpGui</span><span class="params">()</span></span>&#123;</span><br><span class="line">        JFrame frame = <span class="keyword">new</span> JFrame();</span><br><span class="line">        JButton firstButton = <span class="keyword">new</span> JButton();</span><br><span class="line">        firstButton.addActionListener(<span class="keyword">new</span> firstListener());</span><br><span class="line">        JButton secondButton = <span class="keyword">new</span> JButton();</span><br><span class="line">        secondButton.addActionListener(<span class="keyword">new</span> secondButton());</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">firstListener</span> <span class="keyword">implements</span> <span class="title">ActionListener</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent actionEvent)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">secondButton</span> <span class="keyword">implements</span> <span class="title">ActionListener</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent actionEvent)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Create-a-own-widget-with-that-can-paint"><a href="#Create-a-own-widget-with-that-can-paint" class="headerlink" title="Create a own widget with that can paint"></a>Create a own widget with that can paint</h2><ol>
-<li>implement the child class extends JPanel</li>
-<li>override the paintComponent() method</li>
-</ol>
-<ul>
-<li>When repaint is call or when it is necessary,</li>
-<li>the paintComponent menthod will call automatically by the operating system </li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyDrawPanel</span> <span class="keyword">extends</span> <span class="title">JPanel</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">paintComponent</span><span class="params">(Graphics g)</span></span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<ul>
-<li>the Graphics g obj is actually a Graphics2D obj</li>
-<li>more method can be use by casting to Graphics2D obj</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2213,7 +2173,7 @@ function category_js () {
               
                 <a href="/archives%7C%7C%20archive">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
