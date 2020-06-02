@@ -364,12 +364,22 @@ function category_js () {
       
         
           
-            <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+            <h2 id="SELECT"><a href="#SELECT" class="headerlink" title="SELECT"></a>SELECT</h2><ul>
+<li><p>use select keyword to query data from table</br></p>
+</li>
+<li><p>the result is ramdom if no sorting is specify</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> product_name, product_id <span class="comment">-- columns</span></span><br><span class="line"><span class="keyword">FROM</span> products; <span class="comment">-- table</span></span><br></pre></td></tr></table></figure>
 
 
+<h2 id="SELECT-DISTINCT"><a href="#SELECT-DISTINCT" class="headerlink" title="SELECT DISTINCT"></a>SELECT DISTINCT</h2><ul>
+<li>filter out the item having same value</li>
+<li>imp. <space> <space> DISTINCT is applied to all columns</li>
+</ul>
+<h2 id="LIMIT"><a href="#LIMIT" class="headerlink" title="LIMIT"></a>LIMIT</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> product_name, product_id <span class="comment">-- columns</span></span><br><span class="line"><span class="keyword">FROM</span> products; <span class="comment">-- table</span></span><br><span class="line">LIMIT 5;</span><br><span class="line"><span class="comment">-- limit to 5 results</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> product_name, product_id <span class="comment">-- columns</span></span><br><span class="line"><span class="keyword">FROM</span> products; <span class="comment">-- table</span></span><br><span class="line">LIMIT 3,5;</span><br><span class="line"><span class="comment">-- return from row 3 and limit to 5 results</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> product_name, product_id <span class="comment">-- columns</span></span><br><span class="line"><span class="keyword">FROM</span> products; <span class="comment">-- table</span></span><br><span class="line">LIMIT 5 OFFSET 3;</span><br><span class="line"><span class="comment">-- return from row 3 and limit to 5 results</span></span><br></pre></td></tr></table></figure>
 
 
-<img src="/images/mean-squared-error.png" class="" width="600" height="600" title="Numerical differentiation">
           
         
       
