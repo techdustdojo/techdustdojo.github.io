@@ -372,15 +372,36 @@ function category_js () {
 <li>it is the information about database and table layout and properties.</li>
 </ol>
 <ul>
-<li>Breaking Up Data <br/> <pre><code>important to break data into multiple columns correctly. &lt;br/&gt; &lt;br/&gt; 
+<li><p>Breaking Up Data <br/> </p>
+<pre><code>important to break data into multiple columns correctly. &lt;br/&gt; &lt;br/&gt; 
 For example, city, state, and ZIP Code should always be separate columns. By breaking these out, it becomes possible to sort or filter data by specific columns (for example, to find all customers in a particular state or in a particular city)</code></pre></li>
+<li><p>data type</p>
+</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<img src="/images/sql-data-type-string.png" class="" width="600" height="600" title="String">
+<br/> 
+<img src="/images/sql-data-type-numeric.png" class="" width="600" height="600" title="Numeric">
+<br/> 
+<img src="/images/sql-data-type-date-and-time.png" class="" width="600" height="600" title="Date and time">
 
 
+<ul>
+<li>Perimary Key</li>
+</ul>
+<ol>
+<li>uniquely identify a row among the table</li>
+<li>not null</li>
+<li>can form by mutiple column (the combination should be unique)</li>
+</ol>
+<ul>
+<li>Tips<ol>
+<li>• Don’t update values in primary key columns.</li>
+<li>• Don’t reuse values in primary key columns.</li>
+<li>• Don’t use values that might change in primary key columns. (For example, when<br>you use a name as a primary key to identify a supplier, you would have to change the primary key when the supplier merges and changes its name.)</li>
+</ol>
+</li>
+</ul>
 
-
-<img src="/images/mean-squared-error.png" class="" width="600" height="600" title="Numerical differentiation">
           
         
       
